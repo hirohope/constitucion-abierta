@@ -5,6 +5,7 @@ import argparse
 import sqlite3
 import time
 import hashlib
+import random
 
 from apiclient import discovery
 from httplib2 import Http
@@ -30,6 +31,29 @@ def get_last_acta_number():
     last_row = int(rows[0][0])
     
     return last_row
+
+def get_random_acta():
+
+    SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
+    store = file.Storage('storage.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        creds = tools.run_flow(flow, store, flags)
+
+    SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
+    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
+
+    rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
+        range='datos!H:H').execute().get('values', [])
+
+    rows = [item for sublist in rows for item in sublist]
+    row = random.choice(rows)
+    row = row.replace('static/', '')
+
+    return row
+
 
 def is_valid_acta(acta_url, return_number = False):
 

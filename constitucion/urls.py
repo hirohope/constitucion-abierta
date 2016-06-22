@@ -5,6 +5,7 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
+    url(r'^constitucion/acta/aleatorio/$', views.random),
     url(r'^constitucion/$', views.index),
     url(r'^constitucion/subir/$', views.subir),
     url(r'^constitucion/upload_file/$', views.upload_file),
