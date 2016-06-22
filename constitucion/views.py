@@ -4,7 +4,7 @@ import time
 import hashlib
 
 import email
-import spreadsheet as sp
+import constitucion.spreadsheet as sp
 
 
 from django import forms
@@ -13,7 +13,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.utils.encoding import smart_str
 
-from robin import roundrobin
+from constitucion.robin import roundrobin
 
 template_acta_url = 'http://constitucionabierta.cl/acta/%s/'
 template_direct_acta_url = 'http://constitucionabierta.cl/static/acta/%s/'
@@ -51,9 +51,9 @@ def upload_file(request):
         acta_url = template_direct_acta_url % filename
         secret = hashlib.md5(str(time.time())).hexdigest()
         acta_modificar_url = template_acta_modificar_url % (filename, secret)
-        
+
         acta_number = sp.get_last_acta_number()
-        numero_encargado = acta_number % len(roundrobin) 
+        numero_encargado = acta_number % len(roundrobin)
 
         encargado = roundrobin[numero_encargado]
         mail_encargado = encargado[1]
@@ -66,7 +66,7 @@ def upload_file(request):
         return render(request, 'success.html', {'url': filename})
     else:
         return HttpResponseRedirect('/constitucion/subir')
-    
+
 
 def handle_uploaded_file(f, filename):
     with open(os.path.join(settings.ACTAS_DIRECTORY, filename), 'wb+') as destination:
@@ -107,5 +107,3 @@ def upload_modify(request, filename, secret):
 
 
     return None
-
-
