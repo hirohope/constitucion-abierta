@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Constitución Transparente</title>
+  <title>Constitución Abierta</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -49,18 +49,21 @@
 </head>
 <body>
   <nav class="light-green lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="/static/html/img/logo.png"/></a>
+    <div class="nav-wrapper container">
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/constitucion/acta/aleatorio/" class="center col s3 btn waves-effect waves-light green">Ver un Acta compartida</a></li>
+      </ul>
     </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center green-text">Constitución Transparente</h1>
+      <h1 class="header center green-text">Constitución Abierta</h1>
       <div class="row center">
         {% if modify %}
           <h5 class="header col s12 light">Está por modificar el archivo asdsadsadadas</h5>
         {% else %}
-          <h5 class="header col s12 light">Inserte descripción acá</h5>
+          <h5 class="header col s12 light">Sube el acta de tu encuentro local, hazla pública para todas y todos.</h5>
         {% endif %}
       </div>
 
@@ -74,7 +77,7 @@
         <div class="col s6 m6 offset-m3">
         <div class="file-field input-field">
           <div class="btn-large waves-effect waves-light green">
-            <span>Archivo</span>
+            <span>Seleccionar Archivo</span>
             <input type="file" id="myfileinput" name="file">
           </div>
           <div class="file-path-wrapper">
@@ -88,7 +91,7 @@
       </div>
 
       <div class="row center">
-        <input type="submit" value="Submit" class="btn-large waves-effect waves-light green">
+        <input type="submit" value="Enviar acta" class="btn-large waves-effect waves-light green">
       </div>
       <br><br>
     </form>
@@ -108,10 +111,9 @@
   <div class="container">
     <div class="row">
       <div class="s12">
-        <h5 class="white-text">Disclaimer</h5>
+        <h5 class="white-text center">No dejes de subir tu acta en el sitio <a style="color: #a3b1b2" href=https://www.unaconstitucionparachile.cl>https://www.unaconstitucionparachile.cl</a></h5>
         <p class="grey-text text-lighten-4">
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac congue justo. Proin eget vehicula leo, sed tincidunt erat. Integer placerat nisi dolor, id porttitor arcu ultrices fermentum. Ut tincidunt arcu eget ultrices molestie. Cras lorem tortor, mollis vel ipsum non, lacinia aliquet ex. Donec sit amet mi felis. In eget lacus leo. Integer vitae bibendum quam, vitae consectetur sapien. Etiam quis massa libero. Sed accumsan lacus orci, sed ultricies sem scelerisque vel.</p>
+        </p>
       </div>
     </div>
   </div>
