@@ -22,6 +22,9 @@ template_acta_modificar_url = 'http://constitucionabierta.cl/acta/modificar/%s/%
 def index(request):
     return HttpResponse("")
 
+def random(request):
+    url = sp.get_random_acta()
+    return HttpResponseRedirect(url)
 
 def get_filename(file_):
     name = file_.name
@@ -36,7 +39,6 @@ def get_filename(file_):
 
 
 def subir(request):
-    #email.send_email('constitucionabierta@gmail', 'hiro.hope@gmail.com')
     return render(request, 'upload.html')
 
 def upload_file(request):
