@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Constitución Transparente</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/static/html/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/static/html/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-green lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="/static/html/img/logo.png"/></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center green-text">Constitución Transparente</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">
+          <a href="/acta/{{url}}">
+          {% if modify %}
+          El archivo ha sido modificado
+          {% else %}
+          LINK
+          {% endif %}
+          </a>
+        </h5>
+      </div>
+
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light green">Volver</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  
+  <br><br>
+
+  <div class="section">
+
+  </div>
+</div>
+
+<footer class="page-footer green">
+  <div class="container">
+    <div class="row">
+      <div class="s12">
+        <h5 class="white-text">Disclaimer</h5>
+        <p class="grey-text text-lighten-4">
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac congue justo. Proin eget vehicula leo, sed tincidunt erat. Integer placerat nisi dolor, id porttitor arcu ultrices fermentum. Ut tincidunt arcu eget ultrices molestie. Cras lorem tortor, mollis vel ipsum non, lacinia aliquet ex. Donec sit amet mi felis. In eget lacus leo. Integer vitae bibendum quam, vitae consectetur sapien. Etiam quis massa libero. Sed accumsan lacus orci, sed ultricies sem scelerisque vel.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+  </div>
+</footer>
+</body>
+</html>
