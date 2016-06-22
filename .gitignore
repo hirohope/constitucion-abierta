@@ -1,2 +1,4 @@
 *.pyc
 static/actas/
+db.py
+.DS_Store
