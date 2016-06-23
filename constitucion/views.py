@@ -20,7 +20,13 @@ template_direct_acta_url = 'http://constitucionabierta.cl/static/acta/%s/'
 template_acta_modificar_url = 'http://constitucionabierta.cl/acta/modificar/%s/%s/'
 
 def index(request):
-    return HttpResponse("")
+    return render(request, 'index.html')
+
+def mapa(request):
+    return render(request, 'mapa.html')
+
+def opendata(request):
+    return render(request, 'opendata-cco.html')
 
 def random(request):
     url = sp.get_random_acta()
