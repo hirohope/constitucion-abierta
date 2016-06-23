@@ -109,7 +109,14 @@ def get_secret(acta_url):
 
     rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
         range='no_modificar!B8').execute().get('values', [])
-    return rows[0][0] if len(rows) > 0 else None
+    if len(rows) > 0:
+        secret = rows[0][0]
+        rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
+        range='no_modificar!B7').execute().get('values', [])
+        number = int(rows[0][0])
+        return secret, number
+    else:
+        return None, None
 
 def insert_new_acta(acta_url, acta_modificar_url, secret, encargado):
 
@@ -134,7 +141,7 @@ def insert_new_acta(acta_url, acta_modificar_url, secret, encargado):
 
     SHEETS.spreadsheets().values().update(
         spreadsheetId=SHEET_ID,
-        range='A%s' % new_row, body=data, valueInputOption='RAW'
+        range='datos!A%s' % new_row, body=data, valueInputOption='RAW'
     ).execute()
 
     data = {'values': [[secret]]}
@@ -145,6 +152,27 @@ def insert_new_acta(acta_url, acta_modificar_url, secret, encargado):
     ).execute()
 
     return new_row-1
+
+def insert(number, acta_url, acta_modificar_url):
+
+    SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
+    store = file.Storage('storage.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        creds = tools.run_flow(flow, store, flags)
+
+    SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
+    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
+
+
+    data = {'values': [[acta_url, acta_modificar_url]]}
+
+    SHEETS.spreadsheets().values().update(
+        spreadsheetId=SHEET_ID,
+        range='datos!B%s' % number, body=data, valueInputOption='RAW'
+    ).execute()
 
 
 def check_in_spreadsheet(filename, secret):
@@ -160,5 +188,8 @@ def check_in_spreadsheet(filename, secret):
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
     SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
-    real_secret = get_secret(filename)
-    return real_secret == secret
+    real_secret, number = get_secret(filename)
+    if real_secret == secret:
+        return number
+    else:
+        return None

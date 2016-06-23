@@ -48,10 +48,21 @@
   </script>
 </head>
 <body>
+  {% if modify %}
+  <nav class="light-blue darken-4" role="navigation">
+  {% else %}
   <nav class="light-green lighten-1" role="navigation">
+  {% endif %}
     <div class="nav-wrapper container">
       <ul class="right hide-on-med-and-down">
+        {% if not modify %}
         <li><a href="/constitucion/acta/aleatorio/" class="center col s3 btn waves-effect waves-light green">Ver un Acta compartida</a></li>
+        {% endif %}
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        {% if not modify %}
+        <li><a href="/constitucion/mosaico/" class="center col s3 btn waves-effect waves-light green">Ver Mosaico</a></li>
+        {% endif %}
       </ul>
     </div>
   </nav>
@@ -61,7 +72,9 @@
       <h1 class="header center green-text">Constitución Abierta</h1>
       <div class="row center">
         {% if modify %}
-          <h5 class="header col s12 light">Está por modificar el archivo asdsadsadadas</h5>
+          <h5 class="header col s12 light">Estás por modificar el acta número {{acta_number}}</h5>
+          <h5 class="header col s12 light">Por favor recuerda haber eliminado todos los datos personales del acta.</h5>
+          <h5 class="header col s12 light">Por favor recuerda que sólo puedes subir un archivo en formato PDF.</h5>
         {% else %}
           <h5 class="header col s12 light">Sube el acta de tu encuentro local, hazla pública para todas y todos.</h5>
         {% endif %}
@@ -107,14 +120,20 @@
   </div>
 </div>
 
+{% if modify %}
+<footer class="page-footer blue">
+{% else %}
 <footer class="page-footer green">
+{% endif %}
   <div class="container">
     <div class="row">
+      {% if not modify %}
       <div class="s12">
-        <h5 class="white-text center">No dejes de subir tu acta en el sitio <a style="color: #a3b1b2" href=https://www.unaconstitucionparachile.cl>https://www.unaconstitucionparachile.cl</a></h5>
+        <h5 class="white-text center">No olvides subir tu acta en el sitio <a style="color: #2c3e50" href=https://www.unaconstitucionparachile.cl>https://www.unaconstitucionparachile.cl</a></h5>
         <p class="grey-text text-lighten-4">
         </p>
       </div>
+      {% endif %}
     </div>
   </div>
   <div class="footer-copyright">

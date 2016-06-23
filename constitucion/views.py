@@ -35,14 +35,11 @@ def random(request):
 def get_filename(file_):
     name = file_.name
     extension = file_.name.split('.')
-    if len(extension) < 2:
-        return None
     extension = extension[-1]
     timestamp = time.time()
     filename = "%s%s" % (name, timestamp)
     filename = "%s.%s" % (hashlib.md5(filename).hexdigest(), extension)
     return filename
-
 
 def subir(request):
     return render(request, 'upload.html')
@@ -67,6 +64,8 @@ def upload_file(request):
 
         acta_number = sp.insert_new_acta(acta_url, acta_modificar_url, secret, name_encargado)
 
+        name, extension = filename.split('.')
+        filename = name+'.pdf'
 
         email.send_email('constitucionabierta@gmail.cl', mail_encargado, name_encargado, acta_number)
         return render(request, 'success.html', {'url': filename})
@@ -91,23 +90,31 @@ def acta(request, name):
 
 def modify(request, filename, secret):
     acta_url = template_direct_acta_url % filename
-    can_modify = sp.check_in_spreadsheet(acta_url, secret)
-    if not can_modify:
+    acta_number = sp.check_in_spreadsheet(acta_url, secret)
+    if not acta_number:
         raise Http404
     else:
         return render(request, 'upload.html', {
-            'modify': True, 'filename': filename, 'secret': secret
+            'modify': True, 'filename': filename, 'secret': secret, 'acta_number': acta_number-1,
         })
 
 
 def upload_modify(request, filename, secret):
     if request.method == 'POST':
         acta_url = template_direct_acta_url % filename
-        can_modify = sp.check_in_spreadsheet(acta_url, secret)
-        if not can_modify:
+        acta_number = sp.check_in_spreadsheet(acta_url, secret)
+        if not acta_number:
             return render(request, '404.html')
+        name, extension = filename.split('.')
+        filename = name+'.pdf'
+
+        acta_url = template_direct_acta_url % filename
+        acta_modificar_url = template_acta_modificar_url % (filename,secret)
+
+        sp.insert(acta_number, acta_url, acta_modificar_url)
+
         handle_uploaded_file(request.FILES['file'], filename)
-        return render(request, 'success.html', {'url': filename, 'modify': True})
+        return render(request, 'success.html', {'url': filename, 'modify': True, "acta_number":acta_number-1})
     else:
         return HttpResponseRedirect('/constitucion/subir')
 
