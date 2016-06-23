@@ -29,7 +29,7 @@ def get_last_acta_number():
     rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
         range='no_modificar!A2').execute().get('values', [])
     last_row = int(rows[0][0])
-    
+
     return last_row
 
 def get_random_acta():
@@ -77,7 +77,7 @@ def is_valid_acta(acta_url, return_number = False):
 
     rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
         range='no_modificar!B6').execute().get('values', [])
-    is_valid = len(rows) > 0 
+    is_valid = len(rows) > 0
     if is_valid:
         is_valid = rows[0][0] != "#N/A"
 
@@ -162,4 +162,3 @@ def check_in_spreadsheet(filename, secret):
 
     real_secret = get_secret(filename)
     return real_secret == secret
-    
