@@ -15,6 +15,10 @@
       color:#e74c3c;
       display: none;
     }
+    div.g-recaptcha {
+  margin: 0 auto;
+  width: 304px;
+}
   </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
@@ -37,7 +41,30 @@
       } else {
         errorspan.style.display = 'inline';
       }
+
+      var response = grecaptcha.getResponse();
+      var errorspan = document.getElementById("error2");
+      if(response.length != 0){
+        errorspan.style.display = 'none';
+      } else {
+        errorspan.style.display = 'inline';
+        isOK=false;
+      }
+      var errorspan = document.getElementById("error3");
+      console.log("files");
+      console.log(files);
+      console.log(files.length);
+      console.log(errorspan);
+      if(files.length != 0){
+        errorspan.style.display = 'none';
+      } else {
+        errorspan.style.display = 'inline';
+        console.log('asdsadsa');
+        isOK=false;
+      }
+      return false;
       return isOk;
+
   };
   window.onload = function(e) {
     document.getElementById("myfileinput").onchange = function () {
@@ -46,6 +73,7 @@
   };
 
   </script>
+  <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
 </head>
 <body>
   {% if modify %}
@@ -101,9 +129,13 @@
       </div>
       <div class="row center">
         <span class="error" id="error">Su archivo es demasiado grande. Debe pesar menos de 20MB.</span>
+        <span class="error" id="error2">Debe verificar que no es un robot.</span>
+        
+        <span class="error" id="error3">Debe seleccionar un archivo.</span>
       </div>
-
       <div class="row center">
+      	<div class="g-recaptcha" data-sitekey="6LcIbCMTAAAAANq4BSzbRwDzH-XyusQ3h7m1bmzK"></div>
+      	<br><br>
         <input type="submit" value="Enviar acta" class="btn-large waves-effect waves-light green">
       </div>
       <br><br>

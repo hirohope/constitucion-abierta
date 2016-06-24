@@ -42,12 +42,12 @@ def get_filename(file_):
     return filename
 
 def subir(request):
-    return render(request, 'upload.html')
+	return render(request, 'upload.html')
 
 def upload_file(request):
     if request.method == 'POST':
-        if request.FILES['file'].size > 20*1024*1024:
-            return HttpResponseRedirect('/constitucion/subir')
+        if request.FILES['file'].size > 20*1024*1024 or not request.POST['g-recaptcha-response']:
+        	return HttpResponseRedirect('/constitucion/subir')
         filename = get_filename(request.FILES['file'])
         handle_uploaded_file(request.FILES['file'], filename)
 
