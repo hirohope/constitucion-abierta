@@ -47,9 +47,9 @@
         errorspan.style.display = 'none';
       } else {
         errorspan.style.display = 'inline';
-        isOK=false;
+        isOk=false;
       }
-      return isOK;
+      return isOk;
     };
 
 
@@ -70,7 +70,6 @@
       var ok = true;
       ok = validateFile();
       ok = validateCaptcha() && ok;
-      ok = false;
       return ok;
     };
 
