@@ -16,15 +16,15 @@
       display: none;
     }
     div.g-recaptcha {
-  margin: 0 auto;
-  width: 304px;
-}
+      margin: 0 auto;
+      width: 304px;
+    }
   </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <script type="text/javascript">
-    var validateForm = function () {
 
+    var validateFile = function(){
       var fileInput = document.getElementById("myfileinput");
       var files = fileInput.files;
       var maxSize = 20*1024*1024;
@@ -42,6 +42,19 @@
         errorspan.style.display = 'inline';
       }
 
+      var errorspan = document.getElementById("error3");
+      if(files.length != 0){
+        errorspan.style.display = 'none';
+      } else {
+        errorspan.style.display = 'inline';
+        isOK=false;
+      }
+      return isOK;
+    };
+
+
+    var validateCaptcha = function(){
+      var isOk = true;
       var response = grecaptcha.getResponse();
       var errorspan = document.getElementById("error2");
       if(response.length != 0){
@@ -50,26 +63,20 @@
         errorspan.style.display = 'inline';
         isOK=false;
       }
-      var errorspan = document.getElementById("error3");
-      console.log("files");
-      console.log(files);
-      console.log(files.length);
-      console.log(errorspan);
-      if(files.length != 0){
-        errorspan.style.display = 'none';
-      } else {
-        errorspan.style.display = 'inline';
-        console.log('asdsadsa');
-        isOK=false;
-      }
       return isOk;
-
-  };
-  window.onload = function(e) {
-    document.getElementById("myfileinput").onchange = function () {
-      validateForm();
     };
-  };
+
+    var validateForm = function () {
+      var ok = true;
+      ok = validateFile();
+      ok = validateCaptcha() && ok;
+      ok = false;
+      return ok;
+    };
+
+    window.onload = function(e) {
+      document.getElementById("myfileinput").onchange = validateFile;
+    };
 
   </script>
   <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
@@ -83,12 +90,12 @@
     <div class="nav-wrapper container">
       <ul class="right hide-on-med-and-down">
         {% if not modify %}
-        <li><a href="/constitucion/acta/aleatorio/" class="center col s3 btn waves-effect waves-light green">Ver un Acta compartida</a></li>
+        <li><a href="/actas/aleatorio/" class="center col s3 btn waves-effect waves-light green">Ver un Acta compartida</a></li>
         {% endif %}
       </ul>
       <ul class="right hide-on-med-and-down">
         {% if not modify %}
-        <li><a href="#" class="center col s3 btn waves-effect waves-light green">Ver Mosaico</a></li>
+        <li><a href="/actas/mosaico/" class="center col s3 btn waves-effect waves-light green">Ver Mosaico</a></li>
         {% endif %}
       </ul>
     </div>

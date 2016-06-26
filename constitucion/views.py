@@ -28,6 +28,9 @@ def mapa(request):
 def opendata(request):
     return render(request, 'opendata-cco.html')
 
+def mosaico(request):
+    return render(request, 'mosaico.html')
+
 def random(request):
     url = sp.get_random_acta()
     return HttpResponseRedirect(url)
