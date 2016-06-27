@@ -32,8 +32,7 @@ def get_last_acta_number():
 
     return last_row
 
-def get_random_acta():
-
+def get_all_actas():
     SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
     store = file.Storage('storage.json')
     creds = store.get()
@@ -49,6 +48,13 @@ def get_random_acta():
         range='datos!H:H').execute().get('values', [])
 
     rows = [item for sublist in rows for item in sublist]
+
+    return rows
+
+
+def get_random_acta():
+
+    rows = get_all_actas()
     row = random.choice(rows)
     row = row.replace('static/', '')
 

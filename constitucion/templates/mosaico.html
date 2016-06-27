@@ -1,59 +1,43 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Constitución Abierta</title>
+    <meta charset="UTF-8">
+    <title>Constitución Abierta</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="/static/html/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="/static/html/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/static/html/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="/static/html/css/mosaico.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-  <nav class="light-green lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-    </div>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br>
-      <h1 class="header center green-text">Constitución Abierta</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">
-          Pronto podrás ver acá todas las actas que se han hecho públicas
-        </h5>
-      </div>
-
-      <div class="row center">
-        <a href="/" id="download-button" class="btn-large waves-effect waves-light green">Volver</a>
-      </div>
-      <br><br>
-
+        <div>
+            <div class="row">
+                <h4 class="underlined">Actas</h4>
+            </div>
+            <div class="row">
+                {% for url in urls %}
+                <div class="col s4 m3 l2 mb">
+                    <a href="{{url}}" target="_blank">
+                      <div class="c-collection hoverable">
+                        <img src="http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png">
+                        <div class="valign-wrapper">
+                          <div class="valign archive-label">
+                            <span>Ver</span><br>
+                            <span>Acta</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-  <br><br>
-
-  <div class="section">
-
-  </div>
-</div>
-
-<footer class="page-footer green">
-  <div class="container">
-    <div class="row">
-      <div class="s12">
-        <h5 class="white-text center">No dejes de subir tu acta en el sitio <a style="color: #a3b1b2" href=https://www.unaconstitucionparachile.cl>https://www.unaconstitucionparachile.cl</a></h5>
-        <p class="grey-text text-lighten-4"></p>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-  </div>
-</footer>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/html/js/materialize.min.js"></script>
 </body>
 </html>

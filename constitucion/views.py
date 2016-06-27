@@ -29,7 +29,9 @@ def opendata(request):
     return render(request, 'opendata-cco.html')
 
 def mosaico(request):
-    return render(request, 'mosaico.html')
+    urls = sp.get_all_actas()
+    urls = map(lambda u: u.replace('static/',''), urls)
+    return render(request, 'mosaico.html', {'urls': urls})
 
 def random(request):
     url = sp.get_random_acta()
