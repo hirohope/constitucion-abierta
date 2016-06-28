@@ -4,7 +4,7 @@
   
   <!-- for Google -->
 <meta name="description" content="Todos los datos del proceso constituyente deben ser públicos y libres de acceso." />
-<meta name="keywords" content="Chile, constitucion, datos abiertos, proceso constituyente" /> 
+<meta name="keywords" content="Chile, constitucion, datos abiertos, proceso constituyente, constitucion abierta, politica, open data" /> 
 
 <meta name="author" content="Constitución Abierta" />
 <meta name="copyright" content="" />
@@ -31,48 +31,37 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <link rel="stylesheet" href="http://static.tumblr.com/djse6xe/JCZo8vxo1/leaflet.label.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/MarkerCluster.Default.css" />
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
+    <style>
+      #mapid {
+      height: 700px;
+      width : 100%;
+      }
+      
+      iframe {
+      max-width: 100%;
+      }
+      
+      .btn-large {
+      margin-bottom: 10px;
+      }
+      
+      .btn {
+      margin-top: 5px;
+      margin-bottom: 7px;
+      }
+      
+    </style>
     
-        <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-        <script>L_PREFER_CANVAS = true;</script>
-        <script src="http://static.tumblr.com/djse6xe/Dkro8vxo1/leaflet.label.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/leaflet.markercluster.js"></script>
-        <script src="http://dcc.uchile.cl/~mquezada/my.js"></script>
-        <script src="http://static.tumblr.com/djse6xe/nJeo957ka/getdata.js"></script>
-        <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-
-        <style>
-            #mapid {
-                height: 700px;
-                width : 100%;
-            }
-            
-            iframe {
-              max-width: 100%;
-            }
-            
-            .btn-large {
-                margin-bottom: 10px;
-            }
-            
-            .btn {
-                margin-top: 5px;
-                margin-bottom: 7px;
-            }
-            
-        </style>
-
-
-    <script src="http://static.tumblr.com/djse6xe/hH5o957ke/config.js"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
     <title>Constituci&oacute;n Abierta</title>
-    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     <script>
         
   $(function() {
@@ -118,11 +107,6 @@ $(window).on('resize load',adjustIframes);
   </head>
 
   <body>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
     <nav class="white lighten-1" role="navigation">
       <div class="nav-wrapper container"><a href="http://constitucionabierta.cl/opendata-cco" class="waves-effect blue btn">Constituci&oacute;n y datos abiertos</a>
         
@@ -141,11 +125,18 @@ $(window).on('resize load',adjustIframes);
       <div class="container">
       
         <h1>Constituci&oacute;n Abierta</h1>
-        
+
+         
+
         <p class="flow-text">
-        Los siguientes son datos de los Encuentros Locales Autoconvocados en el marco del Proceso Constituyente que se lleva a cabo en Chile. Las visualizaciones fueron creadas para enfatizar la necesidad de que todos los datos del proceso <a href="http://constitucionabierta.cl/opendata-cco">est&eacute;n disponibles de manera abierta y en internet</a> para todos los chilenos y chilenas.
+          Queremos que los datos del Proceso Constituyente estén disponibles abiertamente para todas y todos los chilenos.
+          Si crees lo mismo, sube p&uacute;blicamente tu <strong>Acta de Encuentro Local Autoconvocado</strong>.
         </p>
-        
+
+       <div class="col s12" style="margin-bottom: 20px">
+          <a href="http://constitucionabierta.cl/actas/subir/" class="waves-effect red btn-large">Subir mi Acta de Encuentro Local</a> &nbsp;&nbsp;
+          <a class="waves-effect blue btn-large" href="http://constitucionabierta.cl/actas/mosaico">Ver Actas disponibles</a>
+         </div>
         
       </div>
     </div>
@@ -154,18 +145,26 @@ $(window).on('resize load',adjustIframes);
     <div class="container">
       <div class="row">
         <div class="col s12 center">
+          <!--<div id="mapid" style="height:400px; margin-bottom: 10px;" class="col s12 center"></div>-->
+          <iframe src="https://www.google.com/maps/d/embed?mid=1lJaA5A8o32LIVQoLR6vjhUnntHI" width="1024" height="480"></iframe>
         
-        <!--<div id="mapid" style="height:400px; margin-bottom: 10px;" class="col s12 center"></div>-->
+          <p>Mapa de encuentros locales por comuna.</p>
         
-        <iframe id="mapa" src="https://www.google.com/maps/d/embed?mid=1diOxKzNoht1dE6XPxvgre9YnpCA" width="1024" height="480"></iframe>
-        
-        <p>Mapa de direcciones de Encuentros Locales que fueron declaradas públicas.</p>
-        
-       <a href="http://dcc.uchile.cl/~mquezada/ELAs/ELAs_2016-06-20.csv" class="waves-effect red btn-large">Descargar todos los datos</a> &nbsp;&nbsp; <a class="waves-effect waves-light btn-large" href="http://constitucionabierta.cl/mapa">Ver mapa agregado por localidades</a>
-        <br /><br/>
-        <div class="divider"></div>
-        <div style="margin-bottom: 40px;"></div>
-        
+          <a href="http://dcc.uchile.cl/~mquezada/ELAs/ELAs_2016-06-20.csv" class="waves-effect red btn-large">Descargar todos los datos</a> &nbsp;&nbsp;
+          <a class="waves-effect blue btn-large" href="http://constitucionabierta.cl/mapa">Ver m&aacute;s mapas</a>
+          <br /><br/>
+          <div class="divider"></div>
+          <div style="margin-bottom: 40px;"></div>
+        </div>
+
+        <div class="col s12">
+          <p class="flow-text">
+            Los siguientes son datos de los Encuentros Locales Autoconvocados en el marco del Proceso Constituyente que se lleva a cabo en Chile. Las visualizaciones fueron creadas para enfatizar la necesidad de que todos los datos del proceso <a href="http://constitucionabierta.cl/opendata-cco">est&eacute;n disponibles de manera abierta y en internet</a> para todos los chilenos y chilenas.
+          </p>
+        </div>
+
+        <div class="col s12 center">
+          
         <!-- por 10k habitantes, comunas -->
           <br /><br />
           <img id="10k-hab-com" class="responsive-img" src="https://67.media.tumblr.com/228d3eb793cca5fc733e65df20743185/tumblr_o95hy9445s1vxj9d6o1_r3_1280.png" width="900" />
@@ -179,13 +178,13 @@ $(window).on('resize load',adjustIframes);
           <br /><br />
           <img id="idh-m-100k" class="responsive-img" src="https://67.media.tumblr.com/151734755de2bf5f0507bdaff31f9a8c/tumblr_o95hmvlEja1vxj9d6o1_r3_1280.png" width="900" /> <br />
           
-          <a href="http://dcc.uchile.cl/~mquezada/ELAs/idh_comunas.csv" class="waves-effect waves-light btn">Descargar Datos</a>
+          <a href="http://dcc.uchile.cl/~mquezada/ELAs/idh_comunas.csv" class="waves-effect blue btn">Descargar Datos</a>
           
           <!-- participacion presidenciales -->
           <br /><br /><br />
           <img id="presi" class="responsive-img" src="https://66.media.tumblr.com/d55cf2d5536616abf9275875fb4dae34/tumblr_o95hvj86XV1vxj9d6o1_r1_1280.png" width="900" /> <br />
           
-          <a href="http://dcc.uchile.cl/~mquezada/ELAs/encuentros-participacion.csv" class="waves-effect waves-light btn">Descargar Datos</a>
+          <a href="http://dcc.uchile.cl/~mquezada/ELAs/encuentros-participacion.csv" class="waves-effect blue btn">Descargar Datos</a>
           
           
           <br /><br />
@@ -213,7 +212,7 @@ $(window).on('resize load',adjustIframes);
         <blockquote>
             Todos los datos son de Encuentros Locales <strong>registrados</strong> en <a href="http://unaconstitucionparachile.cl/datos">http://unaconstitucionparachile.cl/datos</a> y no necesariamente indican encuentros completados. Los datos son acumulados hasta lo disponible el d&iacute;a 20 de junio de 2016.
             
-            Los datos demogr&aacute;ficos son obtenidos de la proyecci&oacute;n del INE para la poblaci&oacute;n del 2011, usando como base el Censo del a&ntilde;o 2002. <a href="https://drive.google.com/open?id=1eebNFSwt0PNl-w9rkBnSmzkX0IThAloCGwzGMsKr6E4">Descargar datos</a>.
+            Los datos demogr&aacute;ficos son obtenidos de la proyecci&oacute;n del INE para la poblaci&oacute;n del 2011, usando como base el Censo del a&ntilde;o 2002 (<a href="https://drive.google.com/open?id=1eebNFSwt0PNl-w9rkBnSmzkX0IThAloCGwzGMsKr6E4">Descargar datos</a>).
         </blockquote>
         
         <p>Si deseas comunicarte con nosotros escríbenos a <a href="mailto:constitucionabierta@gmail.com">constitucionabierta@gmail.com</a>.</p>
@@ -221,9 +220,10 @@ $(window).on('resize load',adjustIframes);
         <p> Los datos y los gr&aacute;ficos presentados en este sitio son p&uacute;blicos e incentivamos a la comunidad a explorarlos y usarlos en beneficio de la sociedad.</p>
         <br />
         
-        <div class="col s12 center" style="padding-bottom: 10px;">
-        <a href="#" class="waves-effect waves-light btn">Pronto podr&aacute;s hacer tu acta de Encuentro Local p&uacute;blica...</a>
-        </div>
+        <!-- <div class="col s12 center" style="padding-bottom: 10px;"> -->
+        <!-- <a href="#" class="waves-effect waves-light btn">Pronto podr&aacute;s hacer tu acta de Encuentro Local p&uacute;blica...</a> -->
+        <!-- </div> -->
+
         </div>
     </div>
 

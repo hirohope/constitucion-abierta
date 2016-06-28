@@ -37,20 +37,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/MarkerCluster.Default.css" />
 
     
-        <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-        <script>L_PREFER_CANVAS = true;</script>
-        <script src="http://static.tumblr.com/djse6xe/Dkro8vxo1/leaflet.label.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/leaflet.markercluster.js"></script>
-        <script src="http://dcc.uchile.cl/~mquezada/my.js"></script>
-        <script src="http://static.tumblr.com/djse6xe/nJeo957ka/getdata.js"></script>
-        <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script>L_PREFER_CANVAS = true;</script>
+    <script src="http://static.tumblr.com/djse6xe/Dkro8vxo1/leaflet.label.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/leaflet.markercluster.js"></script>
+    <script src="http://dcc.uchile.cl/~mquezada/my.js"></script>
+    <script src="http://static.tumblr.com/djse6xe/DHpo9gsgc/getdata.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    
+    <style>
+      #mapid {
+      height: 700px;
+      width : 100%;
+      }
 
-        <style>
-            #mapid {
-                height: 700px;
-                width : 100%;
-            }
-        </style>
+      
+      iframe {
+      max-width: 100%;
+      }
+    </style>
 
 
     <script src="http://static.tumblr.com/djse6xe/hH5o957ke/config.js"></script>
@@ -58,6 +63,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
     <title>Mapa de localidades</title>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
     
     <script>
         
@@ -76,24 +87,41 @@
     });
   });
 	
+  function adjustIframes()
+{
+  $('iframe').each(function(){
+    var
+    $this       = $(this),
+    proportion  = $this.data( 'proportion' ),
+    w           = $this.attr('width'),
+    actual_w    = $this.width();
+    
+    if ( ! proportion )
+    {
+        proportion = $this.attr('height') / w;
+        $this.data( 'proportion', proportion );
+    }
+  
+    if ( actual_w != w )
+    {
+        $this.css( 'height', Math.round( actual_w * proportion ) + 'px' );
+    }
+  });
+}
+      $(window).on('resize load',adjustIframes);
     </script>
   </head>
 
   <body>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
     <nav class="white lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="http://ciws.cl/" class="brand-logo"><img src="https://66.media.tumblr.com/a8459fbeea460877509b8cca48b26c67/tumblr_o8vzakQ5KX1vxj9d6o1_1280.png" width="100" /></a>
+      <div class="nav-wrapper container"><a href="http://constitucionabierta.cl" class="waves-effect blue btn">Volver</a>
         <ul class="right hide-on-med-and-down">
-          <li></li>
+          <li><a id="logo-container" href="http://ciws.cl/" class="brand-logo"><img src="https://66.media.tumblr.com/a8459fbeea460877509b8cca48b26c67/tumblr_o8vzakQ5KX1vxj9d6o1_1280.png" width="100" /></a></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#"></a></li>
         </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons"></i></a>
       </div>
     </nav>
 
@@ -103,7 +131,9 @@
         <h1>Mapa de localidades</h1>
         
         <p class="flow-text">
-        Los siguientes son datos de los Encuentros Locales Autoconvocados en el marco del Proceso Constituyente que se lleva a cabo en Chile. Las visualizaciones fueron creadas para enfatizar la necesidad de que todos los datos del proceso <a href="http://constitucionabierta.cl/opendata-cco">est&eacute;n disponibles de manera abierta y en internet</a> para todos los chilenos y chilenas.
+          Los siguientes son datos de los Encuentros Locales Autoconvocados en el marco del Proceso Constituyente que se lleva a cabo en Chile.
+          Las visualizaciones fueron creadas para enfatizar la necesidad de que todos los datos del proceso
+          <a href="http://constitucionabierta.cl/opendata-cco">est&eacute;n disponibles de manera abierta y en internet</a> para todos los chilenos y chilenas.
         </p>
       </div>
     </div>
@@ -111,14 +141,18 @@
 
     <div class="container">
       <div class="row">
-        <div class="col s12 center">
         
+        <div class="col s12 center">
         <div id="mapid" style="height:800px; margin-bottom: 10px;" class="col s12 center"></div>
         
         <p>Encuentros Locales por localidades hasta nivel de comunas.
-(En el extranjero se muestra solo si hicieron p&uacute;blica su direcci&oacute;n.)</p>
+          (En el extranjero se muestra solo si hicieron p&uacute;blica su direcci&oacute;n.)</p>
+
+        <br /><br />
         
-        <a href="http://constitucionabierta.cl" class="waves-effect waves-light btn-large">Volver</a>
+        <iframe src="https://www.google.com/maps/d/embed?mid=1diOxKzNoht1dE6XPxvgre9YnpCA" width="1024" height="480"></iframe>
+        <p>Mapa de direcciones de Encuentros Locales que fueron declaradas p&uacute;blicas.</p>
+
         
         <div style="margin-bottom: 60px;"></div>
         </div>
