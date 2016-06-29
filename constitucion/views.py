@@ -6,7 +6,6 @@ import hashlib
 import email
 import constitucion.spreadsheet as sp
 
-
 from django import forms
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
@@ -30,8 +29,13 @@ def opendata(request):
     return render(request, 'opendata-cco.html')
 
 def mosaico(request):
+ 
     urls = sp.get_all_actas()
     thumbs = map(lambda u: u.replace('.pdf','.png'), urls)
+    thumbs = map(lambda u: u.replace('http://constitucionabierta.cl/','').replace('.png/', '.png'), thumbs)
+    thumbs = map(lambda u: os.path.join(settings.BASE_DIR,u), thumbs)
+    thumbs = map(lambda u: u if os.path.isfile(u) else "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png", thumbs)
+    
     urls = map(lambda u: u.replace('static/',''), urls)
     data = zip(urls, thumbs)
     return render(request, 'mosaico.html', {'data': data})
