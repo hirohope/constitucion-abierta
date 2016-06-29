@@ -115,9 +115,12 @@ def modify(request, filename, secret):
 def handle_thumbnail(filename):
 
     name, extension = filename.split('.')
+    filename = os.path.join(settings.BASE_DIR, 'static', 'acta', filename)
+    name = os.path.join(settings.BASE_DIR, 'static', 'acta', name)
     command = ["convert", "-thumbnail","180", "%s[0]" % filename, "%s.png" % name]
+    #print command
     exit_code = call(command)
-
+    #print exit_code
     return exit_code
 
 
