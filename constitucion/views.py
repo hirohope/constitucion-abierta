@@ -32,9 +32,11 @@ def mosaico(request):
  
     urls = sp.get_all_actas()
     thumbs = map(lambda u: u.replace('.pdf','.png'), urls)
-    thumbs = map(lambda u: u.replace('http://constitucionabierta.cl/','').replace('.png/', '.png'), thumbs)
-    thumbs = map(lambda u: os.path.join(settings.BASE_DIR,u), thumbs)
-    thumbs = map(lambda u: u if os.path.isfile(u) else "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png", thumbs)
+    files = map(lambda u: u.replace('http://constitucionabierta.cl/','').replace('.png/', '.png'), thumbs)
+    files = map(lambda u: os.path.join(settings.BASE_DIR,u), files)
+    files = map(lambda u: os.path.isfile(u), files)
+    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png"
+    thumbs = map(lambda e: e[0] if e[1] else pdfimg, zip(thumbs, files))
     
     urls = map(lambda u: u.replace('static/',''), urls)
     data = zip(urls, thumbs)
