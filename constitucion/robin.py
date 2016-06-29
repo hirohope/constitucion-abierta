@@ -9,7 +9,6 @@ roundrobin = [
 ("Claudio Gutiérrez", "cgutierr@dcc.uchile.cl"),
 ("Juan Reutter", "juan.reutter@gmail.com"),
 ("Adrian Soto", "assoto@uc.cl"),
-("Bárbara Poblete", "barbara.poblete@gmail.com"),
 ("Lucas Cabello", "lmcabellog@gmail.com"),
 ("Mauricio Quezada", "waxkun@gmail.com"),
 ]
