@@ -12,11 +12,34 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <nav class="white lighten-1" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="http://constitucionabierta.cl/actas/subir/" class="waves-effect red btn">Subir mi Acta de Encuentro Local</a> &nbsp;&nbsp;
+        <a href="http://constitucionabierta.cl" class="waves-effect blue btn">Volver</a>
+        
+        <ul class="right hide-on-med-and-down">
+          <li><a id="logo-container" href="http://ciws.cl/" class="brand-logo"><img src="https://66.media.tumblr.com/a8459fbeea460877509b8cca48b26c67/tumblr_o8vzakQ5KX1vxj9d6o1_1280.png" width="100" /></a></li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#"></a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons"></i></a>
+      </div>
+    </nav>
+
+    <div class="container">
+      
+        <h2>Actas P&uacute;blicas</h2>
+
+
+    </div>
     <div class="container">
         <div>
-            <div class="row">
-                <h4 class="underlined">Actas</h4>
-            </div>
+            <!--div class="row">
+                <h4 class="underlined">Actas P&uacute;blicas de Encuentros Locales</h4>
+                <h5>Tu tambi&eacute;n puedes <a href="">hacer tu acta p&uacute;blica</a></h4>
+            </div-->
+
             <div class="row">
                 {% for url, thumb in data %}
                 <div class="col s4 m3 l2 mb">
@@ -26,7 +49,7 @@
                         <div class="valign-wrapper">
                           <div class="valign archive-label">
                             <span>Ver</span><br>
-                            <span>Acta</span>
+                            <span>Acta {{ forloop.counter }}</span>
                           </div>
                         </div>
                       </div>
@@ -36,6 +59,16 @@
             </div>
         </div>
     </div>
+
+
+    <div class="container">
+      <!-- h5> Tu tambi&eacute;n puedes subir el Acta de tu Encuentro Local </h5 -->
+      <div class="col s12" style="margin-bottom: 20px">
+          <a href="http://constitucionabierta.cl/actas/subir/" class="waves-effect red btn-large">Subir mi Acta de Encuentro Local</a> &nbsp;&nbsp;
+          <!-- a class="waves-effect blue btn-large" href="http://constitucionabierta.cl">Volver</a-->
+      </div>
+    </div>
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/html/js/materialize.min.js"></script>
