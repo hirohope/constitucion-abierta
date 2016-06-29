@@ -35,8 +35,9 @@ def mosaico(request):
     files = map(lambda u: u.replace('http://constitucionabierta.cl/','').replace('.png/', '.png'), thumbs)
     files = map(lambda u: os.path.join(settings.BASE_DIR,u), files)
     files = map(lambda u: os.path.isfile(u), files)
-    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png"
+    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png/"
     thumbs = map(lambda e: e[0] if e[1] else pdfimg, zip(thumbs, files))
+    thumbs = map(lambda t: t[:len(t) - 1], thumbs)
     
     urls = map(lambda u: u.replace('static/',''), urls)
     data = zip(urls, thumbs)
