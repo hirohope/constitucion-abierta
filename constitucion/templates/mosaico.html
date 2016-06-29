@@ -18,11 +18,11 @@
                 <h4 class="underlined">Actas</h4>
             </div>
             <div class="row">
-                {% for url in urls %}
+                {% for url, thumb in data %}
                 <div class="col s4 m3 l2 mb">
                     <a href="{{url}}" target="_blank">
                       <div class="c-collection hoverable">
-                        <img src="http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png">
+                        <img src="{{thumb}}">
                         <div class="valign-wrapper">
                           <div class="valign archive-label">
                             <span>Ver</span><br>

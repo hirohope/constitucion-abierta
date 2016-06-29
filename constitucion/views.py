@@ -12,6 +12,7 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.utils.encoding import smart_str
+from subprocess import call
 
 from constitucion.robin import roundrobin
 
@@ -30,8 +31,10 @@ def opendata(request):
 
 def mosaico(request):
     urls = sp.get_all_actas()
+    thumbs = map(lambda u: u.replace('.pdf','.png'), urls)
     urls = map(lambda u: u.replace('static/',''), urls)
-    return render(request, 'mosaico.html', {'urls': urls})
+    data = zip(urls, thumbs)
+    return render(request, 'mosaico.html', {'data': data})
 
 def random(request):
     url = sp.get_random_acta()
@@ -103,6 +106,14 @@ def modify(request, filename, secret):
             'modify': True, 'filename': filename, 'secret': secret, 'acta_number': acta_number-1,
         })
 
+def handle_thumbnail(filename):
+
+    name, extension = filename.split('.')
+    command = ["convert", "-thumbnail","180", "%s[0]" % filename, "%s.png" % name]
+    exit_code = call(command)
+
+    return exit_code
+
 
 def upload_modify(request, filename, secret):
     if request.method == 'POST':
@@ -119,6 +130,7 @@ def upload_modify(request, filename, secret):
         sp.insert(acta_number, acta_url, acta_modificar_url)
 
         handle_uploaded_file(request.FILES['file'], filename)
+        handle_thumbnail(filename)
         return render(request, 'success.html', {'url': filename, 'modify': True, "acta_number":acta_number-1})
     else:
         return HttpResponseRedirect('/constitucion/subir')
