@@ -7,10 +7,13 @@ import time
 import hashlib
 import random
 
+from django.conf import settings
 from apiclient import discovery
 from httplib2 import Http
 from oauth2client import file, client, tools
 
+
+SHEET_ID = settings.SPREADSHEET_ID
 
 def get_last_acta_number():
 

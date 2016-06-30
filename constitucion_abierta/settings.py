@@ -122,5 +122,13 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-
 ACTAS_DIRECTORY = os.path.join(BASE_DIR, 'static', 'acta')
+SPREADSHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
+LOCAL = False
+
+
+TEMPLATE_ACTA_URL = 'http://constitucionabierta.cl/acta/%s/'
+TEMPLATE_DIRECT_ACTA_URL = 'http://constitucionabierta.cl/static/acta/%s/'
+TEMPLATE_ACTA_MODIFICAR_URL = 'http://constitucionabierta.cl/acta/modificar/%s/%s/'
+TEMPLATE_THUMBNAIL = 'http://127.0.0.1:8000/static/acta/%s.png'
+TEMPLATE_THUMBNAIL_STATIC = os.path.join(ACTAS_DIRECTORY, '%s.png')

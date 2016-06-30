@@ -4,3 +4,4 @@ db.py
 .DS_Store
 constitucionabiertaenv/
 constitucion-abierta.sock
+static/acta/
