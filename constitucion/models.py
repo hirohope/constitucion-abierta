@@ -30,9 +30,10 @@ class Acta(models.Model):
 
     def __str__(self):
 
-        return "id %s - hash %s - valid %s - notified %s - responsible %s" % (
+        s = "id %s - hash %s - valid %s - notified %s - responsible %s" % (
             self.id, self.name, self.valid, self.notified, self.responsible
         )
+        return s.encode('utf-8')
 
     def get_all_valid():
         actas = Acta.objects.filter(valid = True)
