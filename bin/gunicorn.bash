@@ -13,7 +13,7 @@ echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR
-source /root/constitucionabiertaenv/bin/activate
+source /home/constitucionabierta/constitucion-abierta-test/constitucionabiertaenv/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 #export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
