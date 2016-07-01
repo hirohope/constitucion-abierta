@@ -158,17 +158,28 @@ def insert_new_acta(acta_url, acta_modificar_url, secret, encargado):
     return new_row-1
 
 def insert(number, acta_id, acta_url, acta_modificar_url, encargado):
-
+    with open(settings.CRONLOG, 'a') as fp:
+        fp.write("hola1\n")
     SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
     store = file.Storage('storage.json')
+    with open(settings.CRONLOG, 'a') as fp:
+        fp.write("hola1.5\n")
     creds = store.get()
+    with open(settings.CRONLOG, 'a') as fp:
+        fp.write("hola1.6\n")
     if not creds or creds.invalid:
+        with open(settings.CRONLOG, 'a') as fp:
+            fp.write("hola1.7\n")
         flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
         flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        with open(settings.CRONLOG, 'a') as fp:
+            fp.write("hola1.9\n")
         creds = tools.run_flow(flow, store, flags)
-
+    with open(settings.CRONLOG, 'a') as fp:
+        fp.write("hola1.8\n")
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-
+    with open(settings.CRONLOG, 'a') as fp:
+        fp.write("hola2\n")
 
     data = {'values': [[acta_id, acta_url, acta_modificar_url, '', encargado]]}
 
@@ -176,6 +187,8 @@ def insert(number, acta_id, acta_url, acta_modificar_url, encargado):
         spreadsheetId=SHEET_ID,
         range='datos!A%s' % number, body=data, valueInputOption='RAW'
     ).execute()
+    with open(settings.CRONLOG, 'a') as fp:
+        fp.write("hola3\n")
 
 def set_modified(number, acta_url, acta_modificar_url):
     SCOPES = 'https://www.googleapis.com/auth/spreadsheets'

@@ -119,11 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 ACTAS_DIRECTORY = os.path.join(BASE_DIR, 'static', 'acta')
-SPREADSHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
+SPREADSHEET_ID = "1tuovIOcBoZ7dx0N9wWrKG-O--hnX6wldA9WpiRmGxwc"
 LOCAL = False
 
 TEMPLATE_ACTA_URL = 'http://constitucionabierta.cl:8000/acta/%s/'

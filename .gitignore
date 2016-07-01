@@ -5,3 +5,7 @@ db.py
 constitucionabiertaenv/
 constitucion-abierta.sock
 static/acta/
+logs/
+db.sqlite3
+cron.log
+

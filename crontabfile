@@ -1,2 +1,2 @@
-* * * * * source /Users/hope/.virtualenvs/constitucion/bin/activate && python /Users/hope/constitucion_abierta/manage.py notify_new_actas >> /Users/hope/constitucion_abierta/constitucion/cron.log 2>&1
-* * * * * source /home/constitucionabierta/constitucion-abierta/constitucionabiertaenv/bin/activate && python /home/constitucionabierta/constitucion-abierta/manage.py notify_new_actas >> /home/constitucionabierta/constitucion-abierta/cron.log 2>&1
+* * * * * /home/constitucionabierta/constitucion-abierta-test/bin/notify_new_actas.bash >> /home/constitucionabierta/constitucion-abierta-test/cron.log 2>&1
+

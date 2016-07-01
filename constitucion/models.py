@@ -72,7 +72,10 @@ class RoundRobin(models.Model):
     
     name = models.CharField(max_length=128)
     mail = models.EmailField()
-    
+
+    def __str__(self):
+        return "Name: %s - Email: %s" % (self.name, self.mail)    
+
     @staticmethod
     def get_one(index):
         n = RoundRobin.objects.count()

@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-.
-
+import os
 import datetime
 import constitucion.spreadsheet as sp
 import constitucion.myemail as email
@@ -16,6 +16,8 @@ class Command(BaseCommand):
                 actas = Acta.objects.filter(notified = False)
                 for acta in actas:
                     n = Acta.objects.filter(notified = True).count()
+                    with open(settings.CRONLOG, 'a') as fp:
+                        fp.write("000 hola\n")
                     sp.insert(n+2, acta.id, acta.get_direct_url(), acta.get_modify_url(), acta.responsible)
                     robin = RoundRobin.objects.filter(name=acta.responsible).first()
                     acta.sheet_row = n+2
