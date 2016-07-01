@@ -14,7 +14,6 @@ from django.shortcuts import render
 from django.utils.encoding import smart_str
 from subprocess import call
 
-from constitucion.robin import roundrobin
 from constitucion.models import Acta
 
 
