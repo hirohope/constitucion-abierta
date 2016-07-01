@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'constitucion',
-    'mod_wsgi.server'
+    'mod_wsgi.server',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,13 +124,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 ACTAS_DIRECTORY = os.path.join(BASE_DIR, 'static', 'acta')
 
-SPREADSHEET_ID = "16zm4bsXJ9uR-K6aNU-xlJEWmsGN72-WKPPKondXFheo"
+SPREADSHEET_ID = "1tuovIOcBoZ7dx0N9wWrKG-O--hnX6wldA9WpiRmGxwc"
 
 LOCAL = True
 
 
-TEMPLATE_ACTA_URL = 'http://127.0.0.1:8000/acta/%s/'
-TEMPLATE_DIRECT_ACTA_URL = 'http://127.0.0.1:8000/static/acta/%s/'
-TEMPLATE_ACTA_MODIFICAR_URL = 'http://127.0.0.1:8000/acta/modificar/%s/%s/'
-TEMPLATE_THUMBNAIL = 'http://127.0.0.1:8000/static/acta/%s.png'
+TEMPLATE_ACTA_URL = 'http://127.0.0.1/acta/%s/'
+TEMPLATE_DIRECT_ACTA_URL = 'http://127.0.0.1/static/acta/%s/'
+TEMPLATE_ACTA_MODIFICAR_URL = 'http://127.0.0.1/acta/modificar/%s/%s/'
+TEMPLATE_THUMBNAIL = 'http://127.0.0.1/static/acta/%s.png'
 TEMPLATE_THUMBNAIL_STATIC = os.path.join(ACTAS_DIRECTORY, '%s.png')
+
+CRONLOG = os.path.join(BASE_DIR, 'cron.log')
+EMAIL = 'constitucionabierta+test@gmail.cl'
+

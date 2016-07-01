@@ -2,6 +2,7 @@ import hashlib
 import os
 import time
 import hashlib
+import datetime
 
 import email
 import constitucion.spreadsheet as sp
@@ -27,18 +28,20 @@ def opendata(request):
     return render(request, 'opendata-cco.html')
 
 def mosaico(request):
-    actas = Acta.objects.filter()
+    actas = Acta.objects.filter(valid = True)
 
     thumbs = map(lambda a: a.get_thumbnail_url(), actas)
     files = map(lambda a: a.get_thumbnail_path(), actas)
     files = map(lambda u: os.path.isfile(u), files)
     urls = map(lambda a: a.get_url(), actas)
 
-    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png/"
+    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png"
     thumbs = map(lambda e: e[0] if e[1] else pdfimg, zip(thumbs, files))
 
     urls = map(lambda u: u.replace('static/',''), urls)
     data = zip(urls, thumbs)
+
+    print data
     return render(request, 'mosaico.html', {'data': data})
 
 def random(request):
@@ -55,12 +58,24 @@ def get_filename(file_):
     return filename
 
 def subir(request):
-	return render(request, 'upload.html')
+    comunas = range(300)
+    return render(request, 'upload.html', {'comunas': comunas})
 
 def upload_file(request):
     if request.method == 'POST':
+
+        person_name = request.POST.get('person_name', '')
+        comuna = request.POST.get('comuna', '')
+        try:
+            date = request.POST.get('date', '')
+            date = datetime.datetime.strptime(date, '%Y-%m-%d')
+            date = date.date()
+        except Exception as e:
+            print e
+            date = None
+    
         if request.FILES['file'].size > 20*1024*1024:# or not request.POST['g-recaptcha-response']:
-        	return HttpResponseRedirect('/constitucion/subir')
+            return HttpResponseRedirect('/constitucion/subir')
         filename = get_filename(request.FILES['file'])
         handle_uploaded_file(request.FILES['file'], filename)
 
@@ -70,6 +85,9 @@ def upload_file(request):
             name = name,
             static = filename,
             secret = hashlib.md5(str(time.time())).hexdigest(),
+            person_name = person_name,
+            date = date,
+            comuna = comuna
         )
         acta.save()
 
@@ -122,18 +140,18 @@ def upload_modify(request, filename, secret):
         if acta is None:
             raise Http404
         acta_number = acta.id
-        acta.valid = True
+        
 
         name, extension = filename.split('.')
         filename = name+'.pdf'
         acta.static = filename
         acta.save()
 
-    
-        #sp.insert(acta_number, acta_url, acta_modificar_url)
-
         handle_uploaded_file(request.FILES['file'], filename)
-        #handle_thumbnail(filename)
+        acta.valid = True
+        acta.save()
+        sp.set_modified(acta.sheet_row, acta.get_direct_url(), acta.get_modify_url())
+        handle_thumbnail(filename)
         return render(request, 'success.html', {'url': acta.get_url(), 'modify': True, "acta_number":acta_number})
     else:
         return HttpResponseRedirect('/actas/subir')

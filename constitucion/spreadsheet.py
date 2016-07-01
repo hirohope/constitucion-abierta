@@ -26,7 +26,6 @@ def get_last_acta_number():
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
 
     rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
@@ -45,7 +44,6 @@ def get_all_actas():
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
     rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
         range='datos!H:H').execute().get('values', [])
@@ -75,7 +73,6 @@ def is_valid_acta(acta_url, return_number = False):
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
     data = {'values': [[acta_url]]}
     SHEETS.spreadsheets().values().update(
@@ -107,7 +104,6 @@ def get_secret(acta_url):
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
     data = {'values': [[acta_url]]}
     SHEETS.spreadsheets().values().update(
@@ -138,7 +134,6 @@ def insert_new_acta(acta_url, acta_modificar_url, secret, encargado):
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
 
     rows = SHEETS.spreadsheets().values().get(spreadsheetId=SHEET_ID,
@@ -162,7 +157,7 @@ def insert_new_acta(acta_url, acta_modificar_url, secret, encargado):
 
     return new_row-1
 
-def insert(number, acta_url, acta_modificar_url):
+def insert(number, acta_id, acta_url, acta_modificar_url, encargado):
 
     SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
     store = file.Storage('storage.json')
@@ -173,16 +168,32 @@ def insert(number, acta_url, acta_modificar_url):
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
 
-    data = {'values': [[acta_url, acta_modificar_url]]}
+    data = {'values': [[acta_id, acta_url, acta_modificar_url, '', encargado]]}
+
+    SHEETS.spreadsheets().values().update(
+        spreadsheetId=SHEET_ID,
+        range='datos!A%s' % number, body=data, valueInputOption='RAW'
+    ).execute()
+
+def set_modified(number, acta_url, acta_modificar_url):
+    SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
+    store = file.Storage('storage.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        creds = tools.run_flow(flow, store, flags)
+
+    SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
+
+    data = {'values': [[acta_url, acta_modificar_url, 'TRUE']]}
 
     SHEETS.spreadsheets().values().update(
         spreadsheetId=SHEET_ID,
         range='datos!B%s' % number, body=data, valueInputOption='RAW'
     ).execute()
-
 
 def check_in_spreadsheet(filename, secret):
 
@@ -195,7 +206,6 @@ def check_in_spreadsheet(filename, secret):
         creds = tools.run_flow(flow, store, flags)
 
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    SHEET_ID = "1vaM3a6djbwKsOwqVY5N1XTN0SjU-JnEO_vHC0iD6M-0"
 
     real_secret, number = get_secret(filename)
     if real_secret == secret:

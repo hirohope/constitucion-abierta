@@ -17,11 +17,22 @@ def assign_robin(sender, instance, created, **kwargs):
 class Acta(models.Model):
     
     name = models.CharField(max_length=128)
+
     static = models.CharField(max_length=128)
     secret = models.CharField(max_length=128)
     valid = models.BooleanField(default=False)
+    sheet_row = models.IntegerField(default=0)
     notified = models.BooleanField(default=False)
+    comuna = models.CharField(max_length=128, default='')
+    date = models.DateField(null=True, blank=True)
+    person_name = models.CharField(max_length=128, default='')
     responsible = models.CharField(max_length=128, default='')
+
+    def __str__(self):
+
+        return "id %s - hash %s - valid %s - notified %s - responsible %s" % (
+            self.id, self.name, self.valid, self.notified, self.responsible
+        )
 
     def get_all_valid():
         actas = Acta.objects.filter(valid = True)
