@@ -126,6 +126,7 @@ ACTAS_DIRECTORY = os.path.join(BASE_DIR, 'static', 'acta')
 SPREADSHEET_ID = "1tuovIOcBoZ7dx0N9wWrKG-O--hnX6wldA9WpiRmGxwc"
 LOCAL = False
 
+SERVICEKEY = os.path.join(ACTAS_DIRECTORY, 'servicekey.json')
 TEMPLATE_ACTA_URL = 'http://constitucionabierta.cl:8000/acta/%s/'
 TEMPLATE_DIRECT_ACTA_URL = 'http://constitucionabierta.cl:8000/static/acta/%s/'
 TEMPLATE_ACTA_MODIFICAR_URL = 'http://constitucionabierta.cl:8000/acta/modificar/%s/%s/'
