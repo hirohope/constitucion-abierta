@@ -63,6 +63,8 @@ def subir(request):
 def upload_file(request):
     if request.method == 'POST':
 
+        if request.FILES['file'].size > 20*1024*1024 or not request.POST['g-recaptcha-response']:
+            return HttpResponseRedirect('/actas/subir')
         person_name = request.POST.get('person_name', '')
         comuna = request.POST.get('comuna', '')
         try:
@@ -70,11 +72,8 @@ def upload_file(request):
             date = datetime.datetime.strptime(date, '%Y-%m-%d')
             date = date.date()
         except Exception as e:
-            print e
             date = None
     
-        if request.FILES['file'].size > 20*1024*1024:# or not request.POST['g-recaptcha-response']:
-            return HttpResponseRedirect('/constitucion/subir')
         filename = get_filename(request.FILES['file'])
         handle_uploaded_file(request.FILES['file'], filename)
 

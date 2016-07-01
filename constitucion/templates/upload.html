@@ -54,7 +54,6 @@
 
 
     var validateCaptcha = function(){
-      return true;
       var isOk = true;
       var response = grecaptcha.getResponse();
       var errorspan = document.getElementById("error2");
@@ -155,6 +154,7 @@
           </div>
         </div>
         </div>
+       {% if not modify %}
         <div class="col s6 m6 offset-m3">
           <div class="row center">
           <br/><br/><br/>
@@ -186,6 +186,7 @@
           </div>
         </div>
       </div>
+      {%endif%}
       <div class="row center">
         <span class="error" id="error">Su archivo es demasiado grande. Debe pesar menos de 20MB.</span>
         <span class="error" id="error2">Debe verificar que no es un robot.</span>
