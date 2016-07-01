@@ -13,11 +13,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         def notify_new_actas():
             with open(settings.CRONLOG, 'a') as fp:
-                actas = Acta.objects.filter(notified = False)
-                for acta in actas:
+                acta = Acta.objects.filter(notified = False).first()
+                while acta is not None:
                     n = Acta.objects.filter(notified = True).count()
-                    with open(settings.CRONLOG, 'a') as fp:
-                        fp.write("000 hola\n")
                     sp.insert(n+2, acta.id, acta.get_direct_url(), acta.get_modify_url(), acta.responsible)
                     robin = RoundRobin.objects.filter(name=acta.responsible).first()
                     acta.sheet_row = n+2
@@ -33,6 +31,7 @@ class Command(BaseCommand):
                     fp.write('[%s] send email to %s - acta %s\n' % (datetime.datetime.now(), robin.mail, acta.id))
                     acta.notified = True
                     acta.save()
+                    acta = Acta.objects.filter(notified = False).first()
 
         with open(settings.CRONLOG, 'a') as fp:
             fp.write('starting %s\n' % datetime.datetime.now())

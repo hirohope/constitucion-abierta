@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "constitucion-abierta-1349",
+  "private_key_id": "dc3fbca8d57ca623216bdb97310d256fb888b205",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCrBkg/czGVxCJ/\nA3Z2GkylKfCiTz0Y1j0J05rGlQGbGVXhQa5TEidqrDZAnZB+MU39AjNf9wpAe/d9\nq4T7U5p5HlzhRk+iJlWfB1cMwelorblnYGo9Bi3W58UD4qvSCrkRCsFa+AlQVfHJ\nAt9OlQmfTV5ZG0l8+Tp/K+5VrGpG4os/dHU9/ADJOXqHGcJH+0dLrUNwffiudX3S\nWGwkJXRU19KS9Q2arDvzuRXnAzfpnK+7V3qqY0f/7AcTlyOPj6ql0KTySJOr4dKp\n4gseLolJs7sLPIe3BK9Q5nIeoNVefZ4M+h2hOqeNoxr4TWUS3oy2f7E7alhuGyJY\ndtOAFmH7AgMBAAECggEAR/rx53qVMQKGvkx3zEdPYOhg9f9BqLVqpTshVlkafuvP\n4GmjdCUc3+GxR8rJKMOZnlYRx18TOoayaHsLEjhiuH1V/B56n7VgrfkJ4z2t/je3\n49GJhTuXiW6s1fDN/i4zLAAJ1z6ztNMnW0HROKKzlQ+cGQbKDEZdH28e9YIGjORW\nMvPpa5WX0URd2AsvaBl0zJooE4pOzSGqAGIxUsHzQuRwx6uHHAUgM2pisitb3x2D\nakjDb/NIOK2/vbmlYeFndab+SV7v7MbBaJWDqWvlgt9XGgU0yS7MwcgA5xBiMN1p\nxSPLTPlSUl6kMJPk9nQoGbjM+EzgmBYa5aUtOVpeSQKBgQDRns25Mbo4Zhe9J+Vh\n+/c8UkkNhWMFhyLvUd8nS1OhNm8lACyX5+wVZq7XaeHSSrnO/NQ5Yx0ulIUunUsB\nv9N4VEsi/Vq2VoiWgJ7cpT+vsHmezx5jQP4M+e+PxeMvjggvhPPat71Afi0wpMfn\nwq8GP+X5/wgdeULF/OPxirru5QKBgQDQ3VuZy8y8P7anU1V1gsaCoBR9N+vTnMeN\nfWGdOysux7n0mbaRYO0paeyby6z7555VDBnTE9mXtSGDEl+q8Zzxqnn4yc6j6fzu\n1l1S9PgtmC366/RG+6iizGGs2ZGdrCehwf0krSz18go4xvVu0B1sCCpyoRNXlGFj\nA7pINAIfXwKBgQCa732vPIof1ZYGQc7RtaLv+wHz9HtUQqYXrbP7HzoZFlrgRliv\njsR4rQTeQ2yeOo1L6KQUJqYTH8OwyKIAEQEFF4jRu+GolB0w4LCK9bk06oN6Vixn\nwEoG3VWsNt/M7nYuaV60csp3OMu+AI2hR8yGGgSp207sOgyYumrgxWGV4QKBgQDJ\ncTUvmAfWZ/zaVN1PgNnEknAwdQbWCZfNNug2pSJ489i9uKMEg9842hiCCmbEbhef\nHxSpJ7PtRZ0UtVvfmzgrPKh28uyB2uM/1zAbGnliQCvYnknzTDTRDx4Ff7GZyLhQ\norBr9zot20tQh1OflMlLsHSAKiplhY6H2MiJat/BMQKBgDQD6138tJEauazJSxcy\nDITSngsnGaM9P0adGrd31mSXTILuTlQciciO01p8krbgSjlAswEy6XJNd5Ks/sbt\nKpmFNnuxISgDOWZZNStbM2WeD8qLCWj0JqzJy4tMghiLmHv9K9rpcfxFpHtUGw8W\nPitX+17VHg2j5hQfIsHNQwhH\n-----END PRIVATE KEY-----\n",
+  "client_email": "cron-115@constitucion-abierta-1349.iam.gserviceaccount.com",
+  "client_id": "103859827078944319407",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cron-115%40constitucion-abierta-1349.iam.gserviceaccount.com"
+}
