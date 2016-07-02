@@ -30,8 +30,8 @@ class Acta(models.Model):
 
     def __str__(self):
 
-        s = "id %s - hash %s - valid %s - notified %s - responsible %s" % (
-            self.id, self.name, self.valid, self.notified, self.responsible
+        s = "id %s - sheet row number %s - hash %s - valid %s - notified %s - responsible %s" % (
+            self.id, self.sheet_row, self.name, self.valid, self.notified, self.responsible
         )
         return s.encode('utf-8')
 
