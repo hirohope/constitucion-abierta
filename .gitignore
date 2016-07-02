@@ -1,10 +1,12 @@
 *.pyc
-static/actas/
+static/actas
 db.py
 .DS_Store
-constitucionabiertaenv/
+constitucionabiertaenv
 constitucion-abierta.sock
-static/acta/
-logs/
+static/acta
 db.sqlite3
 cron.log
+logs/*
+logs/gunicorn_supervisor.log
+
