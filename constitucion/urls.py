@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^mapa/$', views.mapa),
     url(r'^opendata-cco/$', views.opendata),
+    url(r'^quienes/$', views.quienes),
     url(r'^actas/mosaico/$', views.mosaico),
     url(r'^actas/aleatorio/$', views.random),
     url(r'^actas/subir/$', views.subir),

@@ -156,4 +156,7 @@ def upload_modify(request, filename, secret):
         return HttpResponseRedirect('/actas/subir')
 
 
-    return None
+def quienes(request):
+    return render(request, 'quienes.html')
+
+
