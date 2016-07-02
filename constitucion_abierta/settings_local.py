@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
-SECRET_KEY = '8lu*6g0lg)9z!ba+ehk)xt)i1adasdasd&amp;022shmi1jcgihb*'
+SECRET_KEY = '8lu*6g0lg)9llolololoa+ehk)xt)i1adasdmp;022shmi1jcgihb*'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -120,20 +119,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 ACTAS_DIRECTORY = os.path.join(BASE_DIR, 'static', 'acta')
-SPREADSHEET_ID = "1tuovIOcBoZ7dx0N9wWrKG-O--hnX6wldA9WpiRmGxwc"
-LOCAL = False
 
-SERVICEKEY = os.path.join(BASE_DIR, 'servicekey.json')
-TEMPLATE_ACTA_URL = 'http://constitucionabierta.cl:8000/acta/%s'
-TEMPLATE_DIRECT_ACTA_URL = 'http://constitucionabierta.cl/static/acta/%s'
-TEMPLATE_ACTA_MODIFICAR_URL = 'http://constitucionabierta.cl/acta/modificar/%s/%s'
-TEMPLATE_THUMBNAIL = 'http://constitucionabierta.cl:8000/static/acta/%s.png'
+SPREADSHEET_ID = "1tuovIOcBoZ7dx0N9wWrKG-O--hnX6wldA9WpiRmGxwc"
+
+LOCAL = True
+
+
+TEMPLATE_ACTA_URL = 'http://127.0.0.1/acta/%s/'
+TEMPLATE_DIRECT_ACTA_URL = 'http://127.0.0.1/static/acta/%s/'
+TEMPLATE_ACTA_MODIFICAR_URL = 'http://127.0.0.1/acta/modificar/%s/%s/'
+TEMPLATE_THUMBNAIL = 'http://127.0.0.1/static/acta/%s.png'
 TEMPLATE_THUMBNAIL_STATIC = os.path.join(ACTAS_DIRECTORY, '%s.png')
 
 CRONLOG = os.path.join(BASE_DIR, 'cron.log')
-EMAIL = 'constitucionabierta@gmail.cl'
+EMAIL = 'constitucionabierta+test@gmail.cl'
 

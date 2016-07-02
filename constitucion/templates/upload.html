@@ -75,6 +75,28 @@
 
     window.onload = function(e) {
       document.getElementById("myfileinput").onchange = validateFile;
+      jQuery.extend( jQuery.fn.pickadate.defaults, {
+          monthsFull: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre' ],
+          monthsShort: [ 'ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic' ],
+          weekdaysFull: [ 'domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado' ],
+          weekdaysShort: [ 'dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb' ],
+          today: 'hoy',
+          clear: 'borrar',
+          close: 'cerrar',
+          firstDay: 1,
+          format: 'd !de mmmm !de yyyy',
+          formatSubmit: 'yyyy-mm-dd',
+          hiddenName: true
+      });
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 1 // Creates a dropdown of 15 years to control year
+      });
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+
     };
 
   </script>
@@ -132,7 +154,39 @@
           </div>
         </div>
         </div>
+       {% if not modify %}
+        <div class="col s6 m6 offset-m3">
+          <div class="row center">
+          <br/><br/><br/>
+            <span>Además puedes darnos un par de datos más (opcionalmente)</span>
+          </div>
+        </div>
+        <div class="col s6 m6 offset-m3">
+          <div class="file-field input-field">
+              <span>Nombre (opcional)</span>
+              <input name="person_name" class="file-path validate" type="text">
+          </div>
+        </div>
+        <div class="col s6 m6 offset-m3">
+          <div class="input-field">
+              <span>Comuna (opcional)</span>
+                <select name="comuna">
+                  <option value="" selected>Escoge tu comuna</option>
+                  {%for comuna in comunas %}
+                  <option value="{{comuna}}">{{comuna}}</option>
+                  {%endfor%}
+                </select>
+          </div>
+
+        </div>
+        <div class="col s6 m6 offset-m3">
+          <div class="input-field">
+              <span>Fecha del Encuentro (opcional)</span>
+                <input name="date" type="date" class="datepicker">
+          </div>
+        </div>
       </div>
+      {%endif%}
       <div class="row center">
         <span class="error" id="error">Su archivo es demasiado grande. Debe pesar menos de 20MB.</span>
         <span class="error" id="error2">Debe verificar que no es un robot.</span>
@@ -145,6 +199,7 @@
         <input type="submit" value="Enviar acta" class="btn-large waves-effect waves-light green">
       </div>
       <br><br>
+      
     </form>
     </div>
   </div>

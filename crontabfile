@@ -1,0 +1,2 @@
+* * * * * /home/constitucionabierta/constitucion-abierta-test/bin/notify_new_actas.bash >> /home/constitucionabierta/constitucion-abierta-test/cron.log 2>&1
+

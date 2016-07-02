@@ -1,7 +1,9 @@
+# -*- coding: UTF-8 -*-.
 import hashlib
 import os
 import time
 import hashlib
+import datetime
 
 import email
 import constitucion.spreadsheet as sp
@@ -13,11 +15,8 @@ from django.shortcuts import render
 from django.utils.encoding import smart_str
 from subprocess import call
 
-from constitucion.robin import roundrobin
+from constitucion.models import Acta
 
-template_acta_url = 'http://constitucionabierta.cl/acta/%s/'
-template_direct_acta_url = 'http://constitucionabierta.cl/static/acta/%s/'
-template_acta_modificar_url = 'http://constitucionabierta.cl/acta/modificar/%s/%s/'
 
 def index(request):
     return render(request, 'index.html')
@@ -29,23 +28,25 @@ def opendata(request):
     return render(request, 'opendata-cco.html')
 
 def mosaico(request):
- 
-    urls = sp.get_all_actas()
-    thumbs = map(lambda u: u.replace('.pdf','.png'), urls)
-    files = map(lambda u: u.replace('http://constitucionabierta.cl/','').replace('.png/', '.png'), thumbs)
-    files = map(lambda u: os.path.join(settings.BASE_DIR,u), files)
+    actas = Acta.objects.filter(valid = True)
+
+    thumbs = map(lambda a: a.get_thumbnail_url(), actas)
+    files = map(lambda a: a.get_thumbnail_path(), actas)
     files = map(lambda u: os.path.isfile(u), files)
-    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png/"
+    urls = map(lambda a: a.get_url(), actas)
+
+    pdfimg = "http://culturehive.co.uk/wp-content/themes/ama/images/backup-pdf.png"
     thumbs = map(lambda e: e[0] if e[1] else pdfimg, zip(thumbs, files))
-    thumbs = map(lambda t: t[:len(t) - 1], thumbs)
-    
+
     urls = map(lambda u: u.replace('static/',''), urls)
     data = zip(urls, thumbs)
+
+    print data
     return render(request, 'mosaico.html', {'data': data})
 
 def random(request):
-    url = sp.get_random_acta()
-    return HttpResponseRedirect(url)
+    acta = Acta.get_random()
+    return HttpResponseRedirect(acta.get_url())
 
 def get_filename(file_):
     name = file_.name
@@ -57,35 +58,41 @@ def get_filename(file_):
     return filename
 
 def subir(request):
-	return render(request, 'upload.html')
+    comunas = ["Aisén", "Algarrobo", "Alhué", "Alto Biobío", "Alto del Carmen", "Alto Hospicio", "Ancud", "Andacollo", "Angol", "Antofagasta", "Antuco", "Antártica", "Arauco", "Arica", "Buin", "Bulnes", "Cabildo", "Cabo de Hornos", "Cabrero", "Calama", "Calbuco", "Caldera", "Calera de Tango", "Calle Larga", "Camarones", "Camiña", "Canela", "Carahue", "Cartagena", "Casablanca", "Castro", "Catemu", "Cauquenes", "Cañete", "Cerrillos", "Cerro Navia", "Chaitén", "Chanco", "Chañaral", "Chiguayante", "Chile Chico", "Chillán", "Chillán Viejo", "Chimbarongo", "Cholchol", "Chonchi", "Chépica", "Cisnes", "Cobquecura", "Cochamó", "Cochrane", "Codegua", "Coelemu", "Coihaique", "Coihueco", "Colbún", "Colchane", "Colina", "Collipulli", "Coltauco", "Combarbalá", "Concepción", "Conchalí", "Concón", "Constitución", "Contulmo", "Copiapó", "Coquimbo", "Coronel", "Corral", "Coínco", "Cunco", "Curacautín", "Curacaví", "Curaco de Vélez", "Curanilahue", "Curarrehue", "Curepto", "Curicó", "Dalcahue", "Diego de Almagro", "Doñihue", "El Bosque", "El Carmen", "El Monte", "El Quisco", "El Tabo", "Empedrado", "Ercilla", "Estación Central", "Extranjero", "Florida", "Freire", "Freirina", "Fresia", "Frutillar", "Futaleufú", "Futrono", "Galvarino", "General Lagos", "Gorbea", "Graneros", "Guaitecas", "Hijuelas", "Hualaihué", "Hualañé", "Hualpén", "Hualqui", "Huara", "Huasco", "Huechuraba", "Illapel", "Independencia", "Iquique", "Isla de Maipo", "Isla de Pascua", "Juan Fernández", "La Calera", "La Cisterna", "La Cruz", "La Estrella", "La Florida", "La Granja", "La Higuera", "La Ligua", "La Pintana", "La Reina", "La Serena", "La Unión", "Lago Ranco", "Lago Verde", "Laguna Blanca", "Laja", "Lampa", "Lanco", "Las Cabras", "Las Condes", "Lautaro", "Lebu", "Licantén", "Limache", "Linares", "Litueche", "Llaillay", "Llanquihue", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Lolol", "Loncoche", "Longaví", "Lonquimay", "Los Andes", "Los Lagos", "Los Muermos", "Los Sauces", "Los Vilos", "Los Álamos", "Los Ángeles", "Lota", "Lumaco", "Machalí", "Macul", "Maipú", "Malloa", "Marchihue", "Mariquina", "María Elena", "María Pinto", "Maule", "Maullín", "Mejillones", "Melipeuco", "Melipilla", "Molina", "Monte Patria", "Mostazal", "Mulchén", "Máfil", "Nacimiento", "Nancagua", "Natales", "Navidad", "Negrete", "Ninhue", "Nogales", "Nueva Imperial", "Ñiquen", "Ñuñoa", "O'higgins", "Olivar", "Ollague", "Olmué", "Osorno", "Ovalle", "Padre Hurtado", "Padre las Casas", "Paihuano", "Paillaco", "Paine", "Palena", "Palmilla", "Panguipulli", "Panquehue", "Papudo", "Paredones", "Parral", "Pedro Aguirre Cerda", "Pelarco", "Pelluhue", "Pemuco", "Pencahue", "Penco", "Peralillo", "Perquenco", "Petorca", "Peumo", "Peñaflor", "Peñalolén", "Pica", "Pichidegua", "Pichilemu", "Pinto", "Pirque", "Pitrufquén", "Placilla", "Portezuelo", "Porvenir", "Pozo Almonte", "Primavera", "Providencia", "Puchuncaví", "Pucón", "Pudahuel", "Puente Alto", "Puerto Montt", "Puerto Octay", "Puerto Varas", "Pumanque", "Punitaqui", "Punta Arenas", "Puqueldón", "Purranque", "Purén", "Putaendo", "Putre", "Puyehue", "Queilén", "Quellón", "Quemchi", "Quilaco", "Quilicura", "Quilleco", "Quillota", "Quillón", "Quilpué", "Quinchao", "Quinta de Tilcoco", "Quinta Normal", "Quintero", "Quirihue", "Rancagua", "Rauco", "Recoleta", "Renaico", "Renca", "Rengo", "Requínoa", "Retiro", "Rinconada", "Romeral", "Ránquil", "Río Bueno", "Río Claro", "Río Hurtado", "Río Ibáñez", "Río Negro", "Río Verde", "Saavedra", "Sagrada Familia", "Salamanca", "San Antonio", "San Bernardo", "San Carlos", "San Clemente", "San Esteban", "San Fabián", "San Felipe", "San Fernando", "San Gregorio", "San Ignacio", "San Javier", "San Joaquín", "San José de Maipo", "San Juan de la Costa", "San Miguel", "San Nicolás", "San Pablo", "San Pedro", "San Pedro de Atacama", "San Pedro de la Paz", "San Rafael", "San Ramón", "San Rosendo", "San Vicente de Tagua Tagua", "Santa Bárbara", "Santa Cruz", "Santa Juana", "Santa María", "Santiago", "Santo Domingo", "Sierra Gorda", "Talagante", "Talca", "Talcahuano", "Taltal", "Temuco", "Teno", "Teodoro Schmidt", "Tierra Amarilla", "Tiltil", "Timaukel", "Tirúa", "Tocopilla", "Toltén", "Tomé", "Torres del Paine", "Tortel", "Traiguén", "Treguaco", "Tucapel", "Valdivia", "Vallenar", "Valparaíso", "Vichuquén", "Victoria", "Vicuña", "Vilcún", "Villa Alegre", "Villa Alemana", "Villarrica", "Vitacura", "Viña del Mar", "Yerbas Buenas", "Yumbel", "Yungay", "Zapallar"]
+    return render(request, 'upload.html', {'comunas': comunas})
 
 def upload_file(request):
     if request.method == 'POST':
+
         if request.FILES['file'].size > 20*1024*1024 or not request.POST['g-recaptcha-response']:
-        	return HttpResponseRedirect('/constitucion/subir')
+            return HttpResponseRedirect('/actas/subir')
+        person_name = request.POST.get('person_name', '')
+        comuna = request.POST.get('comuna', '')
+        try:
+            date = request.POST.get('date', '')
+            date = datetime.datetime.strptime(date, '%Y-%m-%d')
+            date = date.date()
+        except Exception as e:
+            date = None
+    
         filename = get_filename(request.FILES['file'])
         handle_uploaded_file(request.FILES['file'], filename)
 
-        acta_url = template_direct_acta_url % filename
-        secret = hashlib.md5(str(time.time())).hexdigest()
-        acta_modificar_url = template_acta_modificar_url % (filename, secret)
-
-        acta_number = sp.get_last_acta_number()
-        numero_encargado = acta_number % len(roundrobin)
-
-        encargado = roundrobin[numero_encargado]
-        mail_encargado = encargado[1]
-        name_encargado = encargado[0]
-
-        acta_number = sp.insert_new_acta(acta_url, acta_modificar_url, secret, name_encargado)
-
         name, extension = filename.split('.')
-        filename = name+'.pdf'
 
-        email.send_email('constitucionabierta@gmail.cl', mail_encargado, name_encargado, acta_number)
-        return render(request, 'success.html', {'url': filename})
+        acta = Acta(
+            name = name,
+            static = filename,
+            secret = hashlib.md5(str(time.time())).hexdigest(),
+            person_name = person_name,
+            date = date,
+            comuna = comuna
+        )
+        acta.save()
+
+        return render(request, 'success.html', {'url': acta.get_url()})
     else:
-        return HttpResponseRedirect('/constitucion/subir')
+        return HttpResponseRedirect('/actas/subir')
 
 
 def handle_uploaded_file(f, filename):
@@ -95,22 +102,23 @@ def handle_uploaded_file(f, filename):
 
 
 def acta(request, name):
-    acta_url = template_direct_acta_url % name
-    valid = sp.is_valid_acta(acta_url)
+    acta = Acta.objects.filter(static = name).first()
+    direct_url = acta.get_direct_url()
+    valid = acta.valid
     if valid:
-        return HttpResponseRedirect('/static/acta/%s' % name)
+        return HttpResponseRedirect(direct_url)
     else:
         return render(request, 'not_yet.html')
 
 
 def modify(request, filename, secret):
-    acta_url = template_direct_acta_url % filename
-    acta_number = sp.check_in_spreadsheet(acta_url, secret)
-    if not acta_number:
+    acta = Acta.objects.filter(static = filename, secret = secret).first()
+    if acta is None:
         raise Http404
     else:
+        acta_number = acta.id
         return render(request, 'upload.html', {
-            'modify': True, 'filename': filename, 'secret': secret, 'acta_number': acta_number-1,
+            'modify': True, 'filename': filename, 'secret': secret, 'acta_number': acta_number,
         })
 
 def handle_thumbnail(filename):
@@ -127,23 +135,25 @@ def handle_thumbnail(filename):
 
 def upload_modify(request, filename, secret):
     if request.method == 'POST':
-        acta_url = template_direct_acta_url % filename
-        acta_number = sp.check_in_spreadsheet(acta_url, secret)
-        if not acta_number:
-            return render(request, '404.html')
+        acta = Acta.objects.filter(static = filename, secret = secret).first()
+        if acta is None:
+            raise Http404
+        acta_number = acta.id
+        
+
         name, extension = filename.split('.')
         filename = name+'.pdf'
-
-        acta_url = template_direct_acta_url % filename
-        acta_modificar_url = template_acta_modificar_url % (filename,secret)
-
-        sp.insert(acta_number, acta_url, acta_modificar_url)
+        acta.static = filename
+        acta.save()
 
         handle_uploaded_file(request.FILES['file'], filename)
+        acta.valid = True
+        acta.save()
+        sp.set_modified(acta.sheet_row, acta.get_direct_url(), acta.get_modify_url())
         handle_thumbnail(filename)
-        return render(request, 'success.html', {'url': filename, 'modify': True, "acta_number":acta_number-1})
+        return render(request, 'success.html', {'url': acta.get_url(), 'modify': True, "acta_number":acta_number})
     else:
-        return HttpResponseRedirect('/constitucion/subir')
+        return HttpResponseRedirect('/actas/subir')
 
 
     return None
