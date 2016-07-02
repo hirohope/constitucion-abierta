@@ -18,12 +18,12 @@ from oauth2client import file, client, tools
 
 SHEET_ID = settings.SPREADSHEET_ID
 
-def insert(number, acta_id, acta_url, acta_modificar_url, encargado):
+def insert(number, acta_id, acta_url, acta_modificar_url, encargado, valid = ''):
 
     SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
     creds = ServiceAccountCredentials.from_json_keyfile_name(settings.SERVICEKEY, SCOPES)
     SHEETS = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
-    data = {'values': [[acta_id, acta_url, acta_modificar_url, '', encargado]]}
+    data = {'values': [[acta_id, acta_url, acta_modificar_url, valid, encargado]]}
 
     SHEETS.spreadsheets().values().update(
         spreadsheetId=SHEET_ID,
