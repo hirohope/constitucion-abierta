@@ -128,10 +128,10 @@ SPREADSHEET_ID = "1tuovIOcBoZ7dx0N9wWrKG-O--hnX6wldA9WpiRmGxwc"
 LOCAL = False
 
 SERVICEKEY = os.path.join(BASE_DIR, 'servicekey.json')
-TEMPLATE_ACTA_URL = 'http://constitucionabierta.cl:8000/acta/%s'
+TEMPLATE_ACTA_URL = 'http://constitucionabierta.cl/acta/%s'
 TEMPLATE_DIRECT_ACTA_URL = 'http://constitucionabierta.cl/static/acta/%s'
 TEMPLATE_ACTA_MODIFICAR_URL = 'http://constitucionabierta.cl/acta/modificar/%s/%s'
-TEMPLATE_THUMBNAIL = 'http://constitucionabierta.cl:8000/static/acta/%s.png'
+TEMPLATE_THUMBNAIL = 'http://constitucionabierta.cl/static/acta/%s.png'
 TEMPLATE_THUMBNAIL_STATIC = os.path.join(ACTAS_DIRECTORY, '%s.png')
 
 CRONLOG = os.path.join(BASE_DIR, 'cron.log')
