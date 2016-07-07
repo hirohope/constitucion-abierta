@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^mapa/$', views.mapa),
+    url(r'^wc/$', views.wc),
     url(r'^opendata-cco/$', views.opendata),
     url(r'^quienes/$', views.quienes),
     url(r'^actas/mosaico/$', views.mosaico),

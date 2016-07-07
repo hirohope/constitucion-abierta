@@ -24,6 +24,9 @@ def index(request):
 def mapa(request):
     return render(request, 'mapa.html')
 
+def wc(request):
+    return render(request, 'wc.html')
+
 def opendata(request):
     return render(request, 'opendata-cco.html')
 
