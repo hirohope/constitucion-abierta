@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- SVG SVG SVG -->
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"  
+  viewBox="400 250 1120 580">
+
+<clipPath id="cp2">
+<path d="M 0,0 L 1920,0 L1920,1080 L 0,1080 z M 0,0 L 2400,0 L 2400,1350 L 0,1350 z" fill-rule="evenodd">
+</path>
+</clipPath>
+<g clip-path="url(#cp2)">
+</g>
+<rect x="0" y="0" width="2400" height="1350" opacity="1" fill="#fff" stroke="none">
+</rect>
+<text 
+  class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Derechos: 196 ocurrencias"
+  x="-274.7418518066406" y="13.969909799999996" style="font: normal 139.69909799999996px Impact,serif" text-anchor="start" dy="55.217034782608685" opacity="1" fill="#171717" stroke="none" transform="translate(960, 540) rotate(-16.547068575411014)">
+  Derechos</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Respeto: 133 ocurrencias"
+x="-159.564697265625" y="9.479581649999993" style="font: normal 94.79581649999997px Impact,serif" text-anchor="start" dy="37.46870217391304" opacity="1" fill="#E8A664" stroke="none" transform="translate(932, 424)">Respeto</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Ciudadanos: 125 ocurrencias"
+x="-218.35311889648438" y="8.909381249999996" style="font: normal 89.09381249999998px Impact,serif" text-anchor="start" dy="35.21494565217391" opacity="1" fill="#E8A664" stroke="none" transform="translate(1000, 690)">Ciudadanos</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Constitución: 122 ocurrencias"
+x="-228.9866943359375" y="8.695556099999997" style="font: normal 86.95556099999997px Impact,serif" text-anchor="start" dy="34.36978695652173" opacity="1" fill="#c00" stroke="none" transform="translate(920, 348)">Constitución</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Personas: 112 ocurrencias"
+  x="-153.67684936523438" y="7.982805599999995" style="font: normal 79.82805599999998px Impact,serif" text-anchor="start" dy="31.552591304347818" opacity="1" fill="#c00" stroke="none" transform="translate(754, 492)">Personas</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Derecho: 91 ocurrencias"
+x="-112.30152130126953" y="6.486029549999998" style="font: normal 64.86029549999999px Impact,serif" text-anchor="start" dy="25.63648043478261" opacity="1" fill="#E8A664" stroke="none" transform="translate(1074, 626)">Derecho</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Social: 87 ocurrencias"
+x="-79.81591796875" y="6.200929349999996" style="font: normal 62.009293499999984px Impact,serif" text-anchor="start" dy="24.509602173913038" opacity="1" fill="#c00" stroke="none" transform="translate(986, 758)">Social</text>
+<text 
+class="tooltipped" 
+  data-position="bottom" data-delay="50" data-tooltip="Igualdad: 80 ocurrencias"
+x="-104.0586929321289" y="5.702003999999999" style="font: normal 57.02003999999999px Impact,serif" text-anchor="start" dy="22.5375652173913" opacity="1" fill="#9C6043" stroke="none" transform="translate(926, 290)">Igualdad</text>
+<text x="-123.05121612548828" y="5.488178849999997" style="font: normal 54.881788499999985px Impact,serif" text-anchor="start" dy="21.692406521739127" opacity="1" fill="#c00" stroke="none" transform="translate(1260, 560) rotate(-258.3809365512157)">Protección</text>
+<text x="-67.30033874511719" y="5.488178849999997" style="font: normal 54.881788499999985px Impact,serif" text-anchor="start" dy="21.692406521739127" opacity="1" fill="#E8A664" stroke="none" transform="translate(1160, 412)">Deber</text>
+<text x="-92.095947265625" y="4.7754283499999985" style="font: normal 47.75428349999999px Impact,serif" text-anchor="start" dy="18.875210869565215" opacity="1" fill="#c00" stroke="none" transform="translate(812, 748)">Humanos</text>
+<text x="-43.47161865234375" y="4.7754283499999985" style="font: normal 47.75428349999999px Impact,serif" text-anchor="start" dy="18.875210869565215" opacity="1" fill="#438D9C" stroke="none" transform="translate(1156, 580)">Vida</text>
+<text x="-158.80592346191406" y="4.704153299999998" style="font: normal 47.04153299999999px Impact,serif" text-anchor="start" dy="18.593491304347822" opacity="1" fill="#E8A664" stroke="none" transform="translate(1226, 748)">responsabilidad</text>
+<text x="-87.0648422241211" y="4.632878249999997" style="font: normal 46.32878249999999px Impact,serif" text-anchor="start" dy="18.31177173913043" opacity="1" fill="#c00" stroke="none" transform="translate(686, 442)">Gobierno</text>
+<text x="-40.541290283203125" y="4.632878249999997" style="font: normal 46.32878249999999px Impact,serif" text-anchor="start" dy="18.31177173913043" opacity="1" fill="#9C6043" stroke="none" transform="translate(740, 698)">País</text>
+<text x="-122.33158874511719" y="4.419053099999999" style="font: normal 44.19053099999999px Impact,serif" text-anchor="start" dy="17.466613043478258" opacity="1" fill="#9C6043" stroke="none" transform="translate(628, 580) rotate(-311.7841696168869)">Participación</text>
+<text x="-83.70306396484375" y="4.347778049999999" style="font: normal 43.47778049999999px Impact,serif" text-anchor="start" dy="17.184893478260864" opacity="1" fill="#9C6043" stroke="none" transform="translate(1116, 294)">Sociedad</text>
+<text x="-88.00785064697266" y="4.133952899999997" style="font: normal 41.33952899999999px Impact,serif" text-anchor="start" dy="16.339734782608694" opacity="1" fill="#438D9C" stroke="none" transform="translate(1258, 380) rotate(-322.18872117466617)">Educación</text>
+<text x="-58.034210205078125" y="4.06267785" style="font: normal 40.62677849999999px Impact,serif" text-anchor="start" dy="16.058015217391304" opacity="1" fill="#171717" stroke="none" transform="translate(764, 294)">pueblo</text>
+<text x="-67.27013397216797" y="3.9914027999999977" style="font: normal 39.91402799999999px Impact,serif" text-anchor="start" dy="15.776295652173909" opacity="1" fill="#438D9C" stroke="none" transform="translate(628, 400)">Libertad</text>
+<text x="-84.76421356201172" y="3.920127749999999" style="font: normal 39.20127749999999px Impact,serif" text-anchor="start" dy="15.494576086956519" opacity="1" fill="#438D9C" stroke="none" transform="translate(800, 784)">Desarrollo</text>
+<text x="-85.74038696289062" y="3.920127749999999" style="font: normal 39.20127749999999px Impact,serif" text-anchor="start" dy="15.494576086956519" opacity="1" fill="#438D9C" stroke="none" transform="translate(1158, 784)">Naturaleza</text>
+<text x="-78.40865325927734" y="3.706302599999999" style="font: normal 37.063025999999994px Impact,serif" text-anchor="start" dy="14.649417391304347" opacity="1" fill="#c00" stroke="none" transform="translate(640, 732)">Garantizar</text>
+<text x="-56.313812255859375" y="3.706302599999999" style="font: normal 37.063025999999994px Impact,serif" text-anchor="start" dy="14.649417391304347" opacity="1" fill="#9C6043" stroke="none" transform="translate(642, 696)">Cultura</text>
+<text x="-42.47339630126953" y="3.6350275499999984" style="font: normal 36.350275499999995px Impact,serif" text-anchor="start" dy="14.367697826086955" opacity="1" fill="#E8A664" stroke="none" transform="translate(676, 548)">Salud</text>
+<text x="-61.1263427734375" y="3.278652299999999" style="font: normal 32.786522999999995px Impact,serif" text-anchor="start" dy="12.9591" opacity="1" fill="#E8A664" stroke="none" transform="translate(1282, 694)">Principio</text>
+<text x="-89.99327087402344" y="3.2073772499999986" style="font: normal 32.07377249999999px Impact,serif" text-anchor="start" dy="12.677380434782606" opacity="1" fill="#171717" stroke="none" transform="translate(600, 366)">conservación</text>
+<text x="-76.21846008300781" y="3.0648271499999993" style="font: normal 30.648271499999993px Impact,serif" text-anchor="start" dy="12.113941304347824" opacity="1" fill="#171717" stroke="none" transform="translate(1340, 590)">Democracia</text>
+<text x="-56.342857360839844" y="3.0648271499999993" style="font: normal 30.648271499999993px Impact,serif" text-anchor="start" dy="12.113941304347824" opacity="1" fill="#E8A664" stroke="none" transform="translate(614, 662) rotate(6.738524803173315)">regiones</text>
+<text x="-32.734519958496094" y="3.0648271499999993" style="font: normal 30.648271499999993px Impact,serif" text-anchor="start" dy="12.113941304347824" opacity="1" fill="#438D9C" stroke="none" transform="translate(944, 494)">Chile</text>
+<text x="-70.30916595458984" y="2.9935520999999987" style="font: normal 29.935520999999994px Impact,serif" text-anchor="start" dy="11.832221739130434" opacity="1" fill="#171717" stroke="none" transform="translate(1342, 562)">Comunidad</text>
+<text x="-35.001136779785156" y="2.9935520999999987" style="font: normal 29.935520999999994px Impact,serif" text-anchor="start" dy="11.832221739130434" opacity="1" fill="#E8A664" stroke="none" transform="translate(922, 642)">digna</text>
+<text x="-42.27775573730469" y="2.8510019999999994" style="font: normal 28.510019999999994px Impact,serif" text-anchor="start" dy="11.26878260869565" opacity="1" fill="#9C6043" stroke="none" transform="translate(1296, 664)">Género</text>
+<text x="-19.099464416503906" y="2.8510019999999994" style="font: normal 28.510019999999994px Impact,serif" text-anchor="start" dy="11.26878260869565" opacity="1" fill="#171717" stroke="none" transform="translate(1218, 566) rotate(87.88420239049658)">Ley</text>
+<text x="-49.09569549560547" y="2.7084518999999982" style="font: normal 27.084518999999993px Impact,serif" text-anchor="start" dy="10.705343478260868" opacity="1" fill="#171717" stroke="none" transform="translate(786, 546)">políticas</text>
+<text x="-78.9232406616211" y="2.6371768499999995" style="font: normal 26.371768499999995px Impact,serif" text-anchor="start" dy="10.423623913043476" opacity="1" fill="#c00" stroke="none" transform="translate(634, 768)">constitucional</text>
+<text x="-41.698822021484375" y="2.6371768499999995" style="font: normal 26.371768499999995px Impact,serif" text-anchor="start" dy="10.423623913043476" opacity="1" fill="#c00" stroke="none" transform="translate(1310, 620)">político</text>
+<text x="-38.95653533935547" y="2.4946267499999983" style="font: normal 24.946267499999994px Impact,serif" text-anchor="start" dy="9.860184782608695" opacity="1" fill="#171717" stroke="none" transform="translate(1072, 594)">justicia</text>
+<text x="-38.231964111328125" y="2.4946267499999983" style="font: normal 24.946267499999994px Impact,serif" text-anchor="start" dy="9.860184782608695" opacity="1" fill="#9C6043" stroke="none" transform="translate(736, 418)">valores</text>
+<text x="-53.61238098144531" y="2.4233516999999996" style="font: normal 24.233516999999996px Impact,serif" text-anchor="start" dy="9.578465217391303" opacity="1" fill="#171717" stroke="none" transform="translate(1330, 538)">autonomía</text>
+<text x="-39.50049591064453" y="2.352076649999999" style="font: normal 23.520766499999993px Impact,serif" text-anchor="start" dy="9.296745652173911" opacity="1" fill="#171717" stroke="none" transform="translate(652, 340)">Proceso</text>
+<text x="-45.679237365722656" y="2.2095265499999996" style="font: normal 22.095265499999996px Impact,serif" text-anchor="start" dy="8.733306521739129" opacity="1" fill="#438D9C" stroke="none" transform="translate(1248, 302)">Plebiscito</text>
+<text x="-48.63737487792969" y="2.138251499999999" style="font: normal 21.382514999999994px Impact,serif" text-anchor="start" dy="8.451586956521737" opacity="1" fill="#c00" stroke="none" transform="translate(1262, 336) rotate(-168.22256326001815)">patrimonio</text>
+<text x="-33.656776428222656" y="2.138251499999999" style="font: normal 21.382514999999994px Impact,serif" text-anchor="start" dy="8.451586956521737" opacity="1" fill="#9C6043" stroke="none" transform="translate(1126, 452) rotate(-182.06449400371733)">Calidad</text>
+<text x="-48.84046936035156" y="2.0669764499999985" style="font: normal 20.669764499999996px Impact,serif" text-anchor="start" dy="8.169867391304347" opacity="1" fill="#171717" stroke="none" transform="translate(1334, 500)">solidaridad</text>
+<text x="-29.15398406982422" y="2.0669764499999985" style="font: normal 20.669764499999996px Impact,serif" text-anchor="start" dy="8.169867391304347" opacity="1" fill="#438D9C" stroke="none" transform="translate(1178, 376)">común</text>
+<text x="-38.677452087402344" y="1.9957013999999988" style="font: normal 19.957013999999994px Impact,serif" text-anchor="start" dy="7.888147826086954" opacity="1" fill="#c00" stroke="none" transform="translate(600, 634)">Recursos</text>
+<text x="-60.27055358886719" y="1.9244263499999992" style="font: normal 19.244263499999995px Impact,serif" text-anchor="start" dy="7.606428260869564" opacity="1" fill="#E8A664" stroke="none" transform="translate(572, 578) rotate(-130.06513210884282)">discriminación</text>
+<text x="-55.43708038330078" y="1.9244263499999992" style="font: normal 19.244263499999995px Impact,serif" text-anchor="start" dy="7.606428260869564" opacity="1" fill="#171717" stroke="none" transform="translate(644, 314)">Constituyente</text>
+<text x="-44.20121765136719" y="1.9244263499999992" style="font: normal 19.244263499999995px Impact,serif" text-anchor="start" dy="7.606428260869564" opacity="1" fill="#E8A664" stroke="none" transform="translate(1326, 456) rotate(-36.909992942783774)">económica</text>
+<text x="-49.609336853027344" y="1.8531512999999995" style="font: normal 18.531512999999997px Impact,serif" text-anchor="start" dy="7.324708695652173" opacity="1" fill="#c00" stroke="none" transform="translate(1282, 720)">Fundamental</text>
+<text x="-42.556541442871094" y="1.8531512999999995" style="font: normal 18.531512999999997px Impact,serif" text-anchor="start" dy="7.324708695652173" opacity="1" fill="#c00" stroke="none" transform="translate(1326, 644)">Decisiones</text>
+<text x="-38.684059143066406" y="1.8531512999999995" style="font: normal 18.531512999999997px Impact,serif" text-anchor="start" dy="7.324708695652173" opacity="1" fill="#171717" stroke="none" transform="translate(674, 792)">soberanía</text>
+<text x="-36.340675354003906" y="1.8531512999999995" style="font: normal 18.531512999999997px Impact,serif" text-anchor="start" dy="7.324708695652173" opacity="1" fill="#9C6043" stroke="none" transform="translate(664, 292)">Ambiente</text>
+<text x="-21.511253356933594" y="1.8531512999999995" style="font: normal 18.531512999999997px Impact,serif" text-anchor="start" dy="7.324708695652173" opacity="1" fill="#438D9C" stroke="none" transform="translate(754, 400)">Leyes</text>
+<text x="-66.21349334716797" y="1.781876249999999" style="font: normal 17.818762499999995px Impact,serif" text-anchor="start" dy="7.042989130434781" opacity="1" fill="#c00" stroke="none" transform="translate(1266, 280)">Descentralización</text>
+<text x="-32.12406921386719" y="1.781876249999999" style="font: normal 17.818762499999995px Impact,serif" text-anchor="start" dy="7.042989130434781" opacity="1" fill="#9C6043" stroke="none" transform="translate(580, 454) rotate(-236.79544797662385)">nacional</text>
+<text x="-21.632003784179688" y="1.781876249999999" style="font: normal 17.818762499999995px Impact,serif" text-anchor="start" dy="7.042989130434781" opacity="1" fill="#E8A664" stroke="none" transform="translate(924, 396)">grupo</text>
+<text x="-31.947662353515625" y="1.6393261499999996" style="font: normal 16.393261499999998px Impact,serif" text-anchor="start" dy="6.47955" opacity="1" fill="#171717" stroke="none" transform="translate(1246, 442) rotate(-244.06858523432678)">Universal</text>
+<text x="-25.71338653564453" y="1.6393261499999996" style="font: normal 16.393261499999998px Impact,serif" text-anchor="start" dy="6.47955" opacity="1" fill="#E8A664" stroke="none" transform="translate(988, 798)">normas</text>
+<text x="-31.846145629882812" y="1.568051099999999" style="font: normal 15.680510999999996px Impact,serif" text-anchor="start" dy="6.197830434782608" opacity="1" fill="#9C6043" stroke="none" transform="translate(1292, 364)">Asamblea</text>
+<text x="-24.105682373046875" y="1.568051099999999" style="font: normal 15.680510999999996px Impact,serif" text-anchor="start" dy="6.197830434782608" opacity="1" fill="#171717" stroke="none" transform="translate(928, 796)">iguales</text>
+<text x="-29.602210998535156" y="1.4967760499999994" style="font: normal 14.967760499999997px Impact,serif" text-anchor="start" dy="5.916110869565217" opacity="1" fill="#171717" stroke="none" transform="translate(1312, 394) rotate(-145.8089751442511)">Congreso</text>
+<text x="-23.243492126464844" y="1.4967760499999994" style="font: normal 14.967760499999997px Impact,serif" text-anchor="start" dy="5.916110869565217" opacity="1" fill="#171717" stroke="none" transform="translate(796, 324)">pública</text>
+<text x="-38.3734130859375" y="1.4255009999999997" style="font: normal 14.255009999999997px Impact,serif" text-anchor="start" dy="5.634391304347825" opacity="1" fill="#171717" stroke="none" transform="translate(1142, 322)">obligaciones</text>
+<text x="-24.7913818359375" y="1.4255009999999997" style="font: normal 14.255009999999997px Impact,serif" text-anchor="start" dy="5.634391304347825" opacity="1" fill="#E8A664" stroke="none" transform="translate(1116, 274)">vivienda</text>
+<text x="-28.3330078125" y="1.4255009999999997" style="font: normal 14.255009999999997px Impact,serif" text-anchor="start" dy="5.634391304347825" opacity="1" fill="#c00" stroke="none" transform="translate(1198, 634) rotate(-267.22169846406064)">promover</text>
+<text x="-23.55633544921875" y="1.4255009999999997" style="font: normal 14.255009999999997px Impact,serif" text-anchor="start" dy="5.634391304347825" opacity="1" fill="#c00" stroke="none" transform="translate(1042, 798)">sistema</text>
+<text x="-37.859718322753906" y="1.3542259499999991" style="font: normal 13.542259499999997px Impact,serif" text-anchor="start" dy="5.352671739130434" opacity="1" fill="#E8A664" stroke="none" transform="translate(736, 274)">Internacional</text>
+<text x="-30.283164978027344" y="1.3542259499999991" style="font: normal 13.542259499999997px Impact,serif" text-anchor="start" dy="5.352671739130434" opacity="1" fill="#c00" stroke="none" transform="translate(566, 600) rotate(-130.01574816817563)">promoción</text>
+<text x="-27.99676513671875" y="1.2829508999999995" style="font: normal 12.829508999999998px Impact,serif" text-anchor="start" dy="5.070952173913043" opacity="1" fill="#9C6043" stroke="none" transform="translate(1314, 520)">vinculante</text>
+<text x="-23.89037322998047" y="1.2829508999999995" style="font: normal 12.829508999999998px Impact,serif" text-anchor="start" dy="5.070952173913043" opacity="1" fill="#E8A664" stroke="none" transform="translate(886, 664)">Defensor</text>
+<text x="-30.26905059814453" y="1.2116758499999998" style="font: normal 12.116758499999998px Impact,serif" text-anchor="start" dy="4.789232608695651" opacity="1" fill="#E8A664" stroke="none" transform="translate(1344, 484)">autoridades</text>
+<text x="-18.753196716308594" y="1.1404007999999992" style="font: normal 11.404007999999997px Impact,serif" text-anchor="start" dy="4.50751304347826" opacity="1" fill="#c00" stroke="none" transform="translate(872, 398)">gratuita</text>
+<text x="-28.379615783691406" y="1.0691257499999995" style="font: normal 10.691257499999997px Impact,serif" text-anchor="start" dy="4.225793478260869" opacity="1" fill="#c00" stroke="none" transform="translate(980, 666)">necesidades</text>
+<text x="-19.19811248779297" y="1.0691257499999995" style="font: normal 10.691257499999997px Impact,serif" text-anchor="start" dy="4.225793478260869" opacity="1" fill="#E8A664" stroke="none" transform="translate(938, 518)">proteger</text>
+<text x="-17.1441650390625" y="1.0691257499999995" style="font: normal 10.691257499999997px Impact,serif" text-anchor="start" dy="4.225793478260869" opacity="1" fill="#9C6043" stroke="none" transform="translate(894, 600) rotate(82.55932005300082)">popular</text>
+<text x="-22.950912475585938" y="0.9978506999999994" style="font: normal 9.978506999999997px Impact,serif" text-anchor="start" dy="3.944073913043477" opacity="1" fill="#c00" stroke="none" transform="translate(938, 628)">conciencia</text>
+<text x="-18.409194946289062" y="0.9265756499999998" style="font: normal 9.265756499999998px Impact,serif" text-anchor="start" dy="3.6623543478260867" opacity="1" fill="#9C6043" stroke="none" transform="translate(996, 482) rotate(-25.433257181701652)">bienestar</text>
+</svg>
+
+
+          <!-- END SVG --> 
