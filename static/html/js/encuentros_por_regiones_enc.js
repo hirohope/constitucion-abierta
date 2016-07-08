@@ -59,7 +59,7 @@ var visualization = d3plus.viz()
 })
 .font({"family": "Roboto"})
 .title("Encuentros totales por región")
-.title({"sub": "Divisiones de acuerdo al número total de encuentros por zona geográfica"})
+.title({"sub": "El tamaño de las divisiones es de acuerdo al número total de encuentros por zona"})
 .tooltip(["encuentros"])
 .tooltip({"share": false})
 /*.labels({"align": "left", "valign": "top"})*/
