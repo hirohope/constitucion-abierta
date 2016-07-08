@@ -1,4 +1,4 @@
-var data = "datos_totales.json";
+var data = "/static/data/datos_totales.json";
 var visualization = d3plus.viz()
 .container("#encuentros_por_regiones_enc")
 .data(data)
@@ -58,8 +58,8 @@ var visualization = d3plus.viz()
   "locale": "es_ES"
 })
 .font({"family": "Roboto"})
-.title("Encuentros locales por región")
-.title({"sub": "Divisiones de acuerdo al número de encuentros por zona geográfica"})
+.title("Encuentros totales por región")
+.title({"sub": "Divisiones de acuerdo al número total de encuentros por zona geográfica"})
 .tooltip(["encuentros"])
 .tooltip({"share": false})
 /*.labels({"align": "left", "valign": "top"})*/

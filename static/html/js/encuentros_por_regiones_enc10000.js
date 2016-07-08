@@ -1,4 +1,4 @@
-var data = "datos_totales.json";
+var data = "/static/data/datos_totales.json";
 var visualization = d3plus.viz()
 .container("#encuentros_por_regiones_enc10000")
 .data(data)
