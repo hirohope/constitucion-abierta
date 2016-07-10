@@ -4,6 +4,8 @@ from step_stopwords import add_stopwords, add_nostopwords
 from step_lemmas import add_lemmas
 from step_lempositions import add_lempositions
 from step_lemactfreqs import add_lemactfreqs
+from step_lemwords import add_lemwords
+from step_representatives import add_lemrepresentatives
 from truchery import trans_truchery
 from export_matrix import export_matrix
 from export_actaids import export_actaids
@@ -39,4 +41,6 @@ add_lemmas(data)
 trans_truchery(data)
 add_lempositions(data)
 add_lemactfreqs(data)
+add_lemwords(data)
+add_lemrepresentatives(data)
 export_matrix(data)
