@@ -1,16 +1,18 @@
 import glob, os, re
-from step_wordpositions import add_actaids, add_wordpositions
-from step_wordcount import add_wordcount
-from step_stopwords import add_stopwords, add_nostopwords
 from step_lemmas import add_lemmas
 from step_lempositions import add_lempositions
 from step_lemactfreqs import add_lemactfreqs
 from step_lemwords import add_lemwords
+from step_lemcount import add_lemcount
 from step_representatives import add_lemrepresentatives
+from step_wordpositions import add_actaids, add_wordpositions
+from step_wordcount import add_wordcount
+from step_stopwords import add_stopwords, add_nostopwords
 from truchery import trans_truchery
 from export_matrix import export_matrix
 from export_actaids import export_actaids
-from export_wordcount import export_wordcount_json, export_wordcount_txt
+#from export_wordcount import export_wordcount_json, export_wordcount_txt
+from export_recount import export_recount_json, export_recount_txt
 from functions_cli import *
 
 def add_defaults(data):
@@ -40,15 +42,19 @@ add_txts(data)
 add_stopwords(data)
 add_nostopwords(data)
 add_actaids(data)
-export_actaids(data)
 add_wordpositions(data)
 add_wordcount(data)
-export_wordcount_json(data)
-export_wordcount_txt(data)
 add_lemmas(data)
 trans_truchery(data)
 add_lempositions(data)
 add_lemactfreqs(data)
 add_lemwords(data)
 add_lemrepresentatives(data)
+add_lemcount(data)
+
+export_actaids(data)
+#export_wordcount_json(data)
+#export_wordcount_txt(data)
+export_recount_json(data)
+export_recount_txt(data)
 export_matrix(data)
