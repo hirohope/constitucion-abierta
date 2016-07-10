@@ -1,5 +1,6 @@
 import glob, os, re
 from step_wordpositions import add_actaids, add_wordpositions
+from step_wordcount import add_wordcount
 from step_stopwords import add_stopwords, add_nostopwords
 from step_lemmas import add_lemmas
 from step_lempositions import add_lempositions
@@ -9,6 +10,7 @@ from step_representatives import add_lemrepresentatives
 from truchery import trans_truchery
 from export_matrix import export_matrix
 from export_actaids import export_actaids
+from export_wordcount import export_wordcount_json, export_wordcount_txt
 from functions_cli import *
 
 def add_defaults(data):
@@ -17,6 +19,8 @@ def add_defaults(data):
     data['no-stop-words.txt'] = os.path.join(scriptpath, 'no-stop-words.txt')
     data['matrix.txt'] = 'matrix.txt'
     data['actaids.txt'] = 'actaids.txt'
+    data['wordcount.js'] = 'wordcount.js'
+    data['wordcount.txt'] = 'wordcount.txt'
 
 def add_txts(data):
     if not os.path.isdir(data['txts-path']):
@@ -37,6 +41,9 @@ add_nostopwords(data)
 add_actaids(data)
 export_actaids(data)
 add_wordpositions(data)
+add_wordcount(data)
+export_wordcount_json(data)
+export_wordcount_txt(data)
 add_lemmas(data)
 trans_truchery(data)
 add_lempositions(data)
