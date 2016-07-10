@@ -57,7 +57,7 @@ var visualization = d3plus.viz()
   "locale": "es_ES"
 })
 .font({"family": "Roboto"})
-.title("Encuentros locales")
+.title("Encuentros locales día a día")
 .tooltip(["fecha","cuenta"])
 .messages({"branding":true})
 .draw()
