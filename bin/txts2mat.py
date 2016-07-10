@@ -30,7 +30,8 @@ def add_txts(data):
     data['txts'] = filter(txt_is_acta, txts)
 
 def txt_is_acta(txt):
-    return bool(re.match('[0-9A-Fa-f]*.txt', txt))
+    return bool(re.match('[0-9A-Fa-f]+.txt', txt)) or \
+           bool(re.match('[a-z]+[0-9]+.txt', txt))
 
 data = {}
 add_arguments(data)
