@@ -13,6 +13,7 @@ from export_matrix import export_matrix
 from export_actaids import export_actaids
 #from export_wordcount import export_wordcount_json, export_wordcount_txt
 from export_recount import export_recount_json, export_recount_txt
+from export_lemrewords import export_lemrewords
 from functions_cli import *
 
 def add_defaults(data):
@@ -23,6 +24,7 @@ def add_defaults(data):
     data['actaids.txt'] = 'actaids.txt'
     data['wordcount.js'] = 'wordcount.js'
     data['wordcount.txt'] = 'wordcount.txt'
+    data['lemrewords.txt'] = 'lemrewords.txt'
 
 def add_txts(data):
     if not os.path.isdir(data['txts-path']):
@@ -58,3 +60,4 @@ export_actaids(data)
 export_recount_json(data)
 export_recount_txt(data)
 export_matrix(data)
+export_lemrewords(data)

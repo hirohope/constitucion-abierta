@@ -1,8 +1,15 @@
+from functions_txts import word_simplify
+
 def choose_representative(words):
     return max(words, key=truchscore)
 
 def truchscore(word):
-    if word[-3:]=='nia': return (1001, 1001)
+    s = word_simplify(word)
+    if s == "politica": return (10001, 0)
+    if s[-3:]=='nia'  : return (10000, 0)
+    if s[-4:]=='cion' : return ( 9999, 0)
+    if s[-5:]=='mente': return (-9999, 0)
+    if s[-3:]=='ndo'  : return (-9998, 0)
     return (len(word), charscore(word[-1]))
 
 def charscore(c):
