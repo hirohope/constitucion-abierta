@@ -1,3 +1,4 @@
+import codecs
 '''
 input:
   'lemmas': {'lemma 1': {'r': 'representative1', 'c': count1, 'e': elas1...},
@@ -15,11 +16,11 @@ output file:
 def export_recount_json(data):
     items = [(ld['c'], ld['e'], ld['r']) for ld in data['lemmas'].values()]
     items.sort(reverse=True)
-    items = ['  "%s": {"count": %d, "elas": %d}' % (word, count, elas)
+    items = [u'  "%s": {"count": %d, "elas": %d}' % (word, count, elas)
              for count, elas, word in items]
-    js = ',\n'.join(items)
-    js = 'var data = {\n%s\n};\n' % (js)
-    with open(data['wordcount.js'], 'w') as f:
+    js = u',\n'.join(items)
+    js = u'var data = {\n%s\n};\n' % (js)
+    with codecs.open(data['wordcount.js'], 'w', encoding='utf-8') as f:
         f.write(js)
 
 '''
@@ -34,6 +35,6 @@ output file:
 def export_recount_txt(data):
     items = [(ld['c'], ld['r']) for ld in data['lemmas'].values()]
     items.sort(reverse=True)
-    with open(data['wordcount.txt'], 'w') as f:
+    with codecs.open(data['wordcount.txt'], 'w', encoding='utf-8') as f:
         for count, word in items:
-            f.write("{} {}\n".format(count, word))
+            f.write(u"{} {}\n".format(count, word))

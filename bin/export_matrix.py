@@ -1,3 +1,4 @@
+import codecs
 '''
 input:
 output:
@@ -12,9 +13,9 @@ output file:
 '''
 def export_matrix(data):
     lemmas = sorted(data['lemmas'].items())
-    with open(data['matrix.txt'], 'w') as f:
+    with codecs.open(data['matrix.txt'], 'w', encoding='utf-8') as f:
         for lemma, lemdata in lemmas:
             actfreqs = sorted(lemdata['a'].items())
-            actfreqs = ["%d*%d" % actfreq for actfreq in actfreqs]
-            actfreqs = ' '.join(actfreqs)
-            f.write("{}: {}\n".format(lemma, actfreqs))
+            actfreqs = [u"%d*%d" % actfreq for actfreq in actfreqs]
+            actfreqs = u' '.join(actfreqs)
+            f.write(u"{}: {}\n".format(lemma, actfreqs))

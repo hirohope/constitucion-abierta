@@ -1,4 +1,5 @@
 import nltk
+from functions_txts import word_simplify
 stemmer = nltk.stem.snowball.SnowballStemmer('spanish')
 
 '''
@@ -12,4 +13,4 @@ output:
 def add_lemmas(data):
     words = data['words']
     for word in words:
-        words[word]['L'] = str(stemmer.stem(word))
+        words[word]['L'] = str(stemmer.stem(word_simplify(word)))
