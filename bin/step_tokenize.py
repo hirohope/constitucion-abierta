@@ -22,7 +22,7 @@ def meaningfulword_tokenize(txt, stopwords):
     tokens = filter(is_word, tokens)
     #tokens = [t for t in tokens if re.match('[a-zA-Z]', sim(t))]
     tokens = [t for t in tokens if sim(t) not in stopwords and len(t) > 2]
-    tokens = map(lambda t: t + 's' if t=='derecho' else t, tokens)
+    #tokens = map(lambda t: t + 's' if t=='derecho' else t, tokens)
     return tokens
 
 acceptable = set(('Lu', 'Ll', 'Lm'))

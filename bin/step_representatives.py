@@ -13,4 +13,4 @@ output:
 '''
 def add_lemrepresentatives(data):
     for lemdata in data['lemmas'].values():
-        lemdata['r'] = choose_representative(lemdata['w'])
+        lemdata['r'] = choose_representative(data, lemdata['w'])

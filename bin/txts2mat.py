@@ -4,6 +4,7 @@ from step_lempositions import add_lempositions
 from step_lemactfreqs import add_lemactfreqs
 from step_lemwords import add_lemwords
 from step_lemcount import add_lemcount
+from step_lemcorrections import add_lemcorrections
 from step_representatives import add_lemrepresentatives
 from step_wordpositions import add_actaids, add_wordpositions
 from step_wordcount import add_wordcount
@@ -14,17 +15,20 @@ from export_actaids import export_actaids
 #from export_wordcount import export_wordcount_json, export_wordcount_txt
 from export_recount import export_recount_json, export_recount_txt
 from export_lemrewords import export_lemrewords
+from export_debug import export_debug
 from functions_cli import *
 
 def add_defaults(data):
-    scriptpath = os.getcwd()
-    data['stop-words.txt'] = os.path.join(scriptpath, 'stop-words.txt')
-    data['no-stop-words.txt'] = os.path.join(scriptpath, 'no-stop-words.txt')
+    input = lambda filename: os.path.join(os.getcwd(), filename)
+    data['stop-words.txt'] = input('stop-words.txt')
+    data['no-stop-words.txt'] = input('no-stop-words.txt')
+    data['lemcorrections.txt'] = input('correccion_lemas.txt')
     data['matrix.txt'] = 'matrix.txt'
     data['actaids.txt'] = 'actaids.txt'
     data['wordcount.js'] = 'wordcount.js'
     data['wordcount.txt'] = 'wordcount.txt'
     data['lemrewords.txt'] = 'lemrewords.txt'
+    data['export-debug.py'] = '__debuglog.py'
 
 def add_txts(data):
     if not os.path.isdir(data['txts-path']):
@@ -41,6 +45,7 @@ data = {}
 add_arguments(data)
 add_defaults(data)
 add_txts(data)
+add_lemcorrections(data)
 add_stopwords(data)
 add_nostopwords(data)
 add_actaids(data)
@@ -61,3 +66,4 @@ export_recount_json(data)
 export_recount_txt(data)
 export_matrix(data)
 export_lemrewords(data)
+export_debug(data)
