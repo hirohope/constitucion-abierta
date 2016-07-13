@@ -47,7 +47,7 @@
       }
 
       .viz {
-        height: 400px;
+        height: 500px;
         width: 100%;
       }
 
@@ -226,66 +226,63 @@ $(window).on('resize load',adjustIframes);
           
           <a name="otras"></a>
           
+  					<div class="viz" id="regiones_mas_grandes"></div>
+            
+            <br>
+            
+            <div class="viz" id="regiones_mas_grandes_10000hab"></div>
+            
+            <br>
+            
+            <div class="viz" id="comunas_mas_grandes"></div>
+            
+            <br>
+            
+            <div class="viz" id="comunas_mas_grandes_10000hab"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_por_regiones_enc"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_por_regiones_enc10000"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_vs_idh_regiones"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_vs_idh_comunas"></div>
 
-          <!-- por 10k habitantes, regiones -->
-          <br /><br />
-          <img id="10k-hab" class="responsive-img" src="https://66.media.tumblr.com/eba326b8725a179460b7c455e435b960/tumblr_o95hy9445s1vxj9d6o2_r3_1280.png" width="900" />
+            <br>
+            
+            <div class="viz" id="encuentros_vs_participacion_regiones"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_vs_participacion_regiones_active"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_vs_participacion_comunas"></div>
+            
+            <br>
+            
+            <div class="viz" id="encuentros_participacion_metropolitana"></div>
 
-        
-          <!-- por 10k habitantes, comunas -->
-          <br /><br />
-          <img id="10k-hab-com" class="responsive-img" src="https://67.media.tumblr.com/228d3eb793cca5fc733e65df20743185/tumblr_o95hy9445s1vxj9d6o1_r3_1280.png" width="900" />
-
-
-          <br /><br />
-          <div class="viz" id="encuentros_por_regiones_enc"></div>
-          
-          
+            <br>
+            
+            <div class="viz" id="cuenta_encuentros"></div>
+            
+            <br>
+            
+            <div class="viz" id="cuenta_acumulada_encuentros"></div>
 
           <br />
 <a class="waves-light btn" href="http://pacha.hk/constitucionabierta/">Ver M&aacute;s Gr&aacute;ficos Interactivos</a>
 
-
-                    <br /><br />
-          
-          <div class="viz-g" id="cuenta_encuentros"></div>
-          
-                    <br /><br />
-          
-          <div class="viz-g" id="cuenta_acumulada_encuentros"></div>
-
-          
-          <!-- idh, > 100k -->
-          <br /><br />
-          <img id="idh-m-100k" class="responsive-img" src="https://67.media.tumblr.com/151734755de2bf5f0507bdaff31f9a8c/tumblr_o95hmvlEja1vxj9d6o1_r3_1280.png" width="900" /> 
-
-          <!--iframe style="height:500px; margin-bottom: 10px; width : 100%;" src="http://pacha.hk/constitucionabierta/encuentros_idh_10000hab.html" frameBorder="0"></iframe-->
-
-          <br />
-          
-          <a href="http://dcc.uchile.cl/~mquezada/ELAs/idh_comunas.csv" class="waves-effect blue btn">Descargar Datos</a>
-          
-          <!-- participacion presidenciales -->
-
-          <br /><br /><br />
-          <img id="presi" class="responsive-img" src="https://66.media.tumblr.com/d55cf2d5536616abf9275875fb4dae34/tumblr_o95hvj86XV1vxj9d6o1_r1_1280.png" width="900" /> 
-
-          <!--iframe style="height:510px; margin-bottom: 10px; width : 100%;" src="http://pacha.hk/constitucionabierta/elas_votos_10000hab_2.html" frameBorder="0"></iframe-->
-
-          <br />
-          
-          <a href="http://dcc.uchile.cl/~mquezada/ELAs/encuentros-participacion.csv" class="waves-effect blue btn">Descargar Datos</a>
-          
-          
-          <br /><br />
-        <!-- Dia a dia -->
-          <!--img id="dia-dia" class="responsive-img" src="https://67.media.tumblr.com/5c59bdd13e1017c525da7e022d289f19/tumblr_o95hxno8GG1vxj9d6o3_r1_1280.png" width="900" />
-        <br /><br /-->
-         
-         <!-- a la fecha -->
-          <!--img id="a-fecha" class="responsive-img" src="https://66.media.tumblr.com/6c39fa3b2cdc685e32555240c62433fd/tumblr_o95hxno8GG1vxj9d6o2_r1_1280.png" width="900" />
-          
-          <br /><br /-->
         </div>
       </div>
     </div>
@@ -330,22 +327,26 @@ $(window).on('resize load',adjustIframes);
         </div>
 
         </div>
+      </div>
     </div>
 
 
-  <script src="/static/html/d3plus/d3.min.js"></script>
-  <script src="/static/html/d3plus/d3plus.min.js"></script>
-  <script src='/static/html/js/comunas_mas_grandes.js'></script>
-  <script src='/static/html/js/encuentros_participacion_metropolitana.js'></script>
-  <script src='/static/html/js/encuentros_por_regiones_enc.js'></script>
-  <script src='/static/html/js/encuentros_por_regiones_enc10000.js'></script>
-  <script src='/static/html/js/encuentros_vs_idh_comunas.js'></script>
-  <script src='/static/html/js/encuentros_vs_idh_regiones.js'></script>
-  <script src='/static/html/js/encuentros_vs_participacion_comunas.js'></script>
-  <script src='/static/html/js/encuentros_vs_participacion_regiones.js'></script>
-  <script src='/static/html/js/encuentros_vs_participacion_regiones_active.js'></script>
-  <script src='/static/html/js/cuenta_encuentros.js'></script>
-  <script src='/static/html/js/cuenta_acumulada_encuentros.js'></script>
+<script src="/static/html/d3plus/d3.min.js"></script>
+<script src="/static/html/d3plus/d3plus.min.js"></script>
+<script src='/static/html/js/regiones_mas_grandes.js'></script>
+<script src='/static/html/js/regiones_mas_grandes_10000hab.js'></script>
+<script src='/static/html/js/comunas_mas_grandes.js'></script>
+<script src='/static/html/js/comunas_mas_grandes_10000hab.js'></script>
+<script src='/static/html/js/encuentros_participacion_metropolitana.js'></script>
+<script src='/static/html/js/encuentros_por_regiones_enc.js'></script>
+<script src='/static/html/js/encuentros_por_regiones_enc10000.js'></script>
+<script src='/static/html/js/encuentros_vs_idh_comunas.js'></script>
+<script src='/static/html/js/encuentros_vs_idh_regiones.js'></script>
+<script src='/static/html/js/encuentros_vs_participacion_comunas.js'></script>
+<script src='/static/html/js/encuentros_vs_participacion_regiones.js'></script>
+<script src='/static/html/js/encuentros_vs_participacion_regiones_active.js'></script>
+<script src='/static/html/js/cuenta_encuentros.js'></script>
+<script src='/static/html/js/cuenta_acumulada_encuentros.js'></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -359,4 +360,3 @@ $(window).on('resize load',adjustIframes);
 </script>
 </body>
 </html>
-

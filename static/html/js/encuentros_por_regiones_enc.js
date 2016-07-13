@@ -4,7 +4,7 @@ var visualization = d3plus.viz()
 .data(data)
 .type("treemap")
 .width(false)
-.height(false)
+.height(500)
 .resize(true)
 .id(["region","comuna"])
 .size("encuentros")
@@ -58,12 +58,20 @@ var visualization = d3plus.viz()
   "locale": "es_ES"
 })
 .font({"family": "Roboto"})
-.title("Encuentros totales por región")
-.title({"sub": "El tamaño de las divisiones es de acuerdo al número total de encuentros por zona"})
+.title("Encuentros locales por región")
+.title({"sub": "Divisiones de acuerdo al número de encuentros por zona geográfica"})
 .tooltip(["encuentros"])
 .tooltip({"share": false})
 /*.labels({"align": "left", "valign": "top"})*/
 .legend(false)
 .messages({"branding":true})
 .aggs({"encuentros":"sum"})
+.ui([
+      {
+        "method": function(){
+          visualization.csv(); // passing no values will download data as csv file
+        },
+        "value": ["Descargar datos en CSV"]
+      }
+    ])
 .draw();

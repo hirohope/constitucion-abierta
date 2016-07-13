@@ -1,15 +1,17 @@
-var data = "comunas_mas_grandes.json";
+var data = "/static/data/comunas_mas_grandes.json";
 var visualization = d3plus.viz()
 .container("#comunas_mas_grandes")
 .data(data)
 .type("bar")
 .width(false)
-.height(false)
+.height(500)
 .resize(true)
-.id(["pos","comuna"])
+.id(["comuna"])
 .x("comuna")
 .y("encuentros")
-.color("color")
+.color(function(d){
+      return d.encuentros_10000hab > 0 ? "#3689a3":"#3689a3";
+    })
 .depth(1)
 .format({
   "text": function(text, params) {
@@ -60,11 +62,22 @@ var visualization = d3plus.viz()
   "locale": "es_ES"
 })
 .font({"family": "Roboto"})
-.title("Encuentros locales por región")
-.title({"sub": "Divisiones de acuerdo al número de encuentros por cada 10.000 habitantes por zona geográfica"})
+.title("Encuentros locales por comuna")
+.title({"sub": "Divisiones de acuerdo al número de encuentros por zona geográfica"})
 .tooltip(["encuentros"])
 .tooltip({"share": false})
 /*.labels({"align": "left", "valign": "top"})*/
 .legend(false)
 .messages({"branding":true})
+.order(function(d) {
+    return ["Valdivia","Puerto Montt","Talca","Arica","La Serena","Maipú","Iquique","Viña del Mar","Antofagasta ","La Reina","Recoleta","Temuco","Concepción","La Florida","Valparaíso ","Puente Alto","Las Condes","Ñuñoa","Providencia","Santiago"].indexOf(d.comuna);
+})
+.ui([
+      {
+        "method": function(){
+          visualization.csv(); // passing no values will download data as csv file
+        },
+        "value": ["Descargar datos en CSV"]
+      }
+    ])
 .draw();

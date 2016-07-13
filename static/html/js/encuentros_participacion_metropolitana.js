@@ -1,9 +1,9 @@
 var visualization = d3plus.viz()
 .container("#encuentros_participacion_metropolitana")
-.data("encuentros_participacion_metropolitana.json")
+.data("/static/data/encuentros_participacion_metropolitana.json")
 .type("scatter")
 .width(false)
-.height(false)
+.height(500)
 .resize(true)
 .id(["comuna"])
 .size("poblacion")
@@ -72,4 +72,12 @@ var visualization = d3plus.viz()
 .legend(false)
 .messages({"branding":true})
 .aggs({"idh":"mean","encuentros_10000hab":"mean"})
+.ui([
+      {
+        "method": function(){
+          visualization.csv(); // passing no values will download data as csv file
+        },
+        "value": ["Descargar datos en CSV"]
+      }
+    ])
 .draw();
