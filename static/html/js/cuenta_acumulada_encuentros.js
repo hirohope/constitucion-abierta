@@ -3,7 +3,7 @@ var visualization = d3plus.viz()
 .data("/static/data/cuenta_actas.json")
 .type("line")
 .width(false)
-.height(false)
+.height(500)
 .resize(true)
 .id(["name"])
 .x({"value":"fecha","grid":false})
@@ -60,4 +60,12 @@ var visualization = d3plus.viz()
 .title("Encuentros locales a la fecha")
 .tooltip(["fecha","cuenta_acumulada"])
 .messages({"branding":true})
+.ui([
+      {
+        "method": function(){
+          visualization.csv(); // passing no values will download data as csv file
+        },
+        "value": ["Descargar datos en CSV"]
+      }
+    ])
 .draw();

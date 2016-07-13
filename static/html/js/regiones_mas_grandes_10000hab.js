@@ -1,16 +1,18 @@
+var data = "/static/data/datos_totales.json";
 var visualization = d3plus.viz()
-.container("#encuentros_vs_idh_comunas")
-.data("/static/data/datos_10000hab.json")
-.type("scatter")
+.container("#regiones_mas_grandes_10000hab")
+.data(data)
+.type("bar")
 .width(false)
 .height(500)
 .resize(true)
 .id(["region","comuna"])
-.size("poblacion")
-.x("encuentros_10000hab")
-.y("idh")
-.color("color")
-.depth(1)
+.x("region")
+.y("encuentros_10000hab")
+.color(function(d){
+      return d.encuentros_10000hab > 0 ? "#3652A3":"#3652A3";
+    })
+.depth(0)
 .format({
   "text": function(text, params) {
     if (text === "poblacion") {
@@ -60,13 +62,17 @@ var visualization = d3plus.viz()
   "locale": "es_ES"
 })
 .font({"family": "Roboto"})
-.title("Encuentros locales versus Índice de Desarrollo Humano por comuna")
-.title({"sub":"Considerando comunas con población de más de 10.000 habitantes"})
+.title("Encuentros locales por región")
+.title({"sub": "Divisiones de acuerdo al número de encuentros por cada 10.000 habitantes por zona geográfica"})
 .tooltip(["encuentros"])
 .tooltip({"share": false})
+/*.labels({"align": "left", "valign": "top"})*/
 .legend(false)
 .messages({"branding":true})
-.aggs({"idh":"mean"})
+.aggs({"encuentros_10000hab":"mean"})
+.order(function(d) {
+    return ["Biobío","Araucanía","Valparaíso","Los Ríos","O'Higgins","Los Lagos","Maule","Antofagasta","Metropolitana","Atacama","Tarapacá","Coquimbo","Magallanes","Arica y Parinacota","Aisén"].indexOf(d.region);
+})
 .ui([
       {
         "method": function(){
