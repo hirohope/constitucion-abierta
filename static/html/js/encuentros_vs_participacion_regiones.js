@@ -73,12 +73,4 @@ var visualization = d3plus.viz()
 .legend(false)
 .messages({"branding":true})
 .aggs({"idh":"mean","encuentros_10000hab":"mean"})
-.ui([
-      {
-        "method": function(){
-          visualization.csv(); // passing no values will download data as csv file
-        },
-        "value": ["Descargar datos en CSV"]
-      }
-    ])
 .draw();

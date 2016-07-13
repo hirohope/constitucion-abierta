@@ -1,4 +1,4 @@
-var data = "/static/data/datos_totales.json";
+var data = "/static/data/ranking_regiones_10000hab.json";
 var visualization = d3plus.viz()
 .container("#regiones_mas_grandes_10000hab")
 .data(data)
@@ -69,16 +69,7 @@ var visualization = d3plus.viz()
 /*.labels({"align": "left", "valign": "top"})*/
 .legend(false)
 .messages({"branding":true})
-.aggs({"encuentros_10000hab":"mean"})
 .order(function(d) {
-    return ["Biobío","Araucanía","Valparaíso","Los Ríos","O'Higgins","Los Lagos","Maule","Antofagasta","Metropolitana","Atacama","Tarapacá","Coquimbo","Magallanes","Arica y Parinacota","Aisén"].indexOf(d.region);
+    return ["Biobío",	"O'Higgins",	"Araucanía",	"Los Lagos",	"Valparaíso",	"Maule",	"Antofagasta",	"Coquimbo",	"Los Ríos",	"Tarapacá",	"Metropolitana",	"Atacama",	"Arica y Parinacota",	"Magallanes",	"Aisén"].indexOf(d.region);
 })
-.ui([
-      {
-        "method": function(){
-          visualization.csv(); // passing no values will download data as csv file
-        },
-        "value": ["Descargar datos en CSV"]
-      }
-    ])
 .draw();

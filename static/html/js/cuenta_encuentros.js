@@ -60,12 +60,4 @@ var visualization = d3plus.viz()
 .title("Encuentros locales")
 .tooltip(["fecha","cuenta"])
 .messages({"branding":true})
-.ui([
-      {
-        "method": function(){
-          visualization.csv(); // passing no values will download data as csv file
-        },
-        "value": ["Descargar datos en CSV"]
-      }
-    ])
 .draw()

@@ -74,12 +74,4 @@ var visualization = d3plus.viz()
 .messages({"branding":true})
 .aggs({"idh":"mean","encuentros_10000hab":"mean"})
 .active({"value": function(d){ return d["poblacion"] > 10000; }, "spotlight":true})
-.ui([
-      {
-        "method": function(){
-          visualization.csv(); // passing no values will download data as csv file
-        },
-        "value": ["Descargar datos en CSV"]
-      }
-    ])
 .draw();

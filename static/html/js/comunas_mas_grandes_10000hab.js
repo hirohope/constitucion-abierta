@@ -72,12 +72,4 @@ var visualization = d3plus.viz()
 .order(function(d) {
     return ["Maipú","Puente Alto","La Florida","Antofagasta ","Viña del Mar","Talca","Puerto Montt","Temuco","La Serena","Arica","Valdivia","Concepción","Iquique","Valparaíso ","Las Condes","Recoleta","La Reina","Ñuñoa","Providencia","Santiago"].indexOf(d.comuna);
 })
-.ui([
-      {
-        "method": function(){
-          visualization.csv(); // passing no values will download data as csv file
-        },
-        "value": ["Descargar datos en CSV"]
-      }
-    ])
 .draw();

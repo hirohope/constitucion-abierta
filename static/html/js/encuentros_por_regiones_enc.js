@@ -66,12 +66,4 @@ var visualization = d3plus.viz()
 .legend(false)
 .messages({"branding":true})
 .aggs({"encuentros":"sum"})
-.ui([
-      {
-        "method": function(){
-          visualization.csv(); // passing no values will download data as csv file
-        },
-        "value": ["Descargar datos en CSV"]
-      }
-    ])
 .draw();
