@@ -60,7 +60,7 @@ decisiones	decisiones,decisión
 autonomía	autonomía,autonomías,autónoma,autónomo
 vivir	vivan,vive,viven,vivieron,vivimos,vivir,vivos
 justicia	justicia
-cumplimientos	cumplimiento,cumplimientos
+cumplimiento	cumplimiento,cumplimientos
 ambiental	ambiental,ambientales,ambiente
 tomar	toma,tomada,tomado,tomamos,toman,tomando,tomar,tomas,tomen,tomó
 iguales	igual,igualar,iguales,igualmente
