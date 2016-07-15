@@ -1,8 +1,6 @@
 # Site settings
 title: Jekyll + Materialize = <3
-description: "Just when you didn't think Jekyll could get any better, it got materialized."
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-destination: ../site/
+description: "Datos del Proceso Constituyente disponibles abiertamente para todas y todos los chilenos"
 
 # Build settings
 markdown: kramdown
