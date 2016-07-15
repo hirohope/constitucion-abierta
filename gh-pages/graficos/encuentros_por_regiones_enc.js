@@ -2,7 +2,7 @@ var data = "/graficos/datos_totales.json";
 var visualization = d3plus.viz()
 .container("#encuentros_por_regiones_enc")
 .data(data)
-.type("treemap")
+.type("tree_map")
 .width(false)
 .height(500)
 .resize(true)
