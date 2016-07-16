@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    .viz {
+        height: 500px;
+        width: 100%;
+      }
+  </style>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Constitución Abierta</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+  <link href="css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+  <body>
+    <nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">C+A</a>
+    <ul class="right hide-on-med-and-down">
+      
+      
+      <li><a class="page-link" href="/constitucion-abierta/">Constitución Abierta</a></li>
+      
+      
+      
+      
+      
+      <li><a class="page-link" href="/constitucion-abierta/open.html">Constitución y Datos Abiertos</a></li>
+      
+      
+      
+      <li><a class="page-link" href="/constitucion-abierta/quienes.html">Quienes Somos</a></li>
+      
+      
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      
+      <li><a href="#">Constitución Abierta</a></li>
+      
+      <li><a href="#"></a></li>
+      
+      <li><a href="#">Constitución y Datos Abiertos</a></li>
+      
+      <li><a href="#">Quienes Somos</a></li>
+      
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+    <div class="page-content">
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <br><br>
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Welcome to Jekyll!</h1>
+    <p class="post-meta">Jul 1, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <h1 id="isnt-this-awesome"><strong>Isn’t this awesome?</strong></h1>
+
+<p>If this doesn’t look right, you’re probably trying to view this page without running <code class="highlighter-rouge">jekyll serve</code> first.</p>
+
+<p>Oh, btw, code highlighting:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Materialize.css + Jekyll = &lt;3"</span><span class="o">);</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Curcible is okay too I guess."</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+
+  </article>
+
+</div>
+
+          <br><br>
+      </div>
+    </div>
+  </div>
+    <footer class="page-footer orange">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Constitución Abierta</h5>
+        <p class="grey-text text-lighten-4">Centro de Investigación de la Web Semántica (<a class="white-text" href="http://ciws.cl/">www.ciws.cl</a>)</p>
+        <p><a class="white-text" href="https://twitter.com/ciwschile">Siguenos en Twitter</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/bin/materialize.js"></script>
+<script src="js/init.js"></script>
+<script src="d3plus/d3.min.js"></script>
+<script src="d3plus/d3plus.min.js"></script>
+
+<script src='graficos/regiones_mas_grandes.js'></script>
+<script src='graficos/regiones_mas_grandes_10000hab.js'></script>
+<script src='graficos/comunas_mas_grandes.js'></script>
+<script src='graficos/comunas_mas_grandes_10000hab.js'></script>
+<script src='graficos/encuentros_participacion_metropolitana.js'></script>
+<script src='graficos/encuentros_por_regiones_enc.js'></script>
+<script src='graficos/encuentros_por_regiones_enc10000.js'></script>
+<script src='graficos/encuentros_vs_idh_comunas.js'></script>
+<script src='graficos/encuentros_vs_idh_regiones.js'></script>
+<script src='graficos/encuentros_vs_participacion_comunas.js'></script>
+<script src='graficos/encuentros_vs_participacion_regiones.js'></script>
+<script src='graficos/encuentros_vs_participacion_regiones_active.js'></script>
+<script src='graficos/cuenta_encuentros.js'></script>
+<script src='graficos/cuenta_acumulada_encuentros.js'></script>
+
+<script type="text/javascript">
+    var validateFile = function(){
+      var fileInput = document.getElementById("myfileinput");
+      var files = fileInput.files;
+      var maxSize = 20*1024*1024;
+
+      var isOk = true;
+      for (var i = 0; i < files.length; i++) {
+        if(files[i].size > maxSize){
+          isOk = false;
+        }
+      }
+      var errorspan = document.getElementById("error");
+      if (isOk){
+        errorspan.style.display = 'none';
+      } else {
+        errorspan.style.display = 'inline';
+      }
+
+      var errorspan = document.getElementById("error3");
+      if(files.length != 0){
+        errorspan.style.display = 'none';
+      } else {
+        errorspan.style.display = 'inline';
+        isOk=false;
+      }
+      return isOk;
+    };
+
+
+    var validateCaptcha = function(){
+      var isOk = true;
+      var response = grecaptcha.getResponse();
+      var errorspan = document.getElementById("error2");
+      if(response.length != 0){
+        errorspan.style.display = 'none';
+      } else {
+        errorspan.style.display = 'inline';
+        isOK=false;
+      }
+      return isOk;
+    };
+
+    var validateForm = function () {
+      var ok = true;
+      ok = validateFile();
+      ok = validateCaptcha() && ok;
+      return ok;
+    };
+
+    window.onload = function(e) {
+      document.getElementById("myfileinput").onchange = validateFile;
+      jQuery.extend( jQuery.fn.pickadate.defaults, {
+          monthsFull: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre' ],
+          monthsShort: [ 'ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic' ],
+          weekdaysFull: [ 'domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado' ],
+          weekdaysShort: [ 'dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb' ],
+          today: 'hoy',
+          clear: 'borrar',
+          close: 'cerrar',
+          firstDay: 1,
+          format: 'd !de mmmm !de yyyy',
+          formatSubmit: 'yyyy-mm-dd',
+          hiddenName: true
+      });
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 1 // Creates a dropdown of 15 years to control year
+      });
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+
+    };
+</script>
+<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+
+</html>

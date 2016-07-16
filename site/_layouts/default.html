@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    .viz {
+        height: 500px;
+        width: 100%;
+      }
+  </style>
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="page-content">
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <br><br>
+        {{ content }}
+          <br><br>
+      </div>
+    </div>
+  </div>
+    {% include footer.html %}
+  </body>
+
+  {% include scripts.html %}
+
+</html>

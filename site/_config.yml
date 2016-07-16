@@ -1,0 +1,6 @@
+# Site settings
+title: Constitución Abierta
+description: "Datos del Proceso Constituyente disponibles abiertamente para todas y todos los chilenos"
+baseurl: "/constitucion-abierta"
+# Build settings
+markdown: kramdown

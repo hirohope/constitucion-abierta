@@ -13,6 +13,11 @@ urlpatterns = [
     url(r'^actas/mosaico/$', views.mosaico),
     url(r'^actas/aleatorio/$', views.random),
     url(r'^actas/subir/$', views.subir),
+    # cabildos
+    url(r'^cabildos/$', views.cabildos),
+    url(r'^cabildos/mesa/$', views.cabildos_mesa),
+    url(r'^cabildos/acta/$', views.cabildos_acta),
+
     url(r'^acta/(?P<name>\w+\.\w+)/$', views.acta),
     url(r'^acta/modificar/(?P<filename>\w+\.\w+)/(?P<secret>\w+)/$', views.modify),
     url(r'^constitucion/upload_file/$', views.upload_file),

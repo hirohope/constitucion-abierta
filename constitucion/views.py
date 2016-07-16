@@ -30,6 +30,15 @@ def wc(request):
 def opendata(request):
     return render(request, 'opendata-cco.html')
 
+def cabildos(request):
+    return render(request, 'elegir-tipo-cabildo.html')
+
+def cabildos_mesa(request):
+    return render(request, 'subir-mesa-cabildo.html')
+
+def cabildos_acta(request):
+    return render(request, 'index.html')
+
 def mosaico(request):
     actas = Acta.objects.filter(valid = True)
 
