@@ -37,7 +37,7 @@ def cabildos_mesa(request):
     return render(request, 'subir-mesa-cabildo.html')
 
 def cabildos_acta(request):
-    return render(request, 'index.html')
+    return render(request, 'subir-acta-cabildo.html')
 
 def mosaico(request):
     actas = Acta.objects.filter(valid = True)
