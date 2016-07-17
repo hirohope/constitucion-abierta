@@ -16,7 +16,7 @@ urlpatterns = [
     # cabildos
     url(r'^cabildos/$', views.cabildos),
     url(r'^cabildos/grupo/$', views.cabildos_grupo),
-    url(r'^cabildos/integraciontem/$', views.cabildos_integraciontema),
+    url(r'^cabildos/integraciontema/$', views.cabildos_integraciontema),
 
     url(r'^acta/(?P<name>\w+\.\w+)/$', views.acta),
     url(r'^acta/modificar/(?P<filename>\w+\.\w+)/(?P<secret>\w+)/$', views.modify),
