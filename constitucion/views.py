@@ -33,11 +33,18 @@ def opendata(request):
 def cabildos(request):
     return render(request, 'elegir-tipo-cabildo.html')
 
-def cabildos_mesa(request):
-    return render(request, 'subir-mesa-cabildo.html')
+#def cabildos_mesa(request):
+#    return render(request, 'subir-mesa-cabildo.html')
 
-def cabildos_acta(request):
-    return render(request, 'subir-acta-cabildo.html')
+#def cabildos_acta(request):
+#    return render(request, 'subir-acta-cabildo.html')
+
+def cabildos_grupo(request):
+    return render(request, 'subir-grupo-cabildo.html')
+
+def cabildos_integraciontema(request):
+    return render(request, 'subir-tema-cabildo.html')
+
 
 def mosaico(request):
     actas = Acta.objects.filter(valid = True)
