@@ -168,7 +168,7 @@ $(window).on('resize load',adjustIframes);
           Explorador de Conceptos Constitucionales con datos oficiales del proceso.
 
         <div class="col s12" style="margin-bottom: 20px">
-          <a href="http://constitucionabierta.cl/explorador/" class="waves-effect orange btn-large">Ir al Explorador de Conceptos Constitucionales a Nivel Nacional</a>
+          <a href="..." class="waves-effect orange btn-large">Ir al Explorador de Conceptos Constitucionales a Nivel Nacional</a>
         </div>
           <!--Si crees lo mismo, reporta tu <strong>Cabildo Provincial</strong> o publica tu <strong>Acta de Encuentro Local</strong>. -->
         </p>
@@ -182,10 +182,6 @@ $(window).on('resize load',adjustIframes);
       </div>
 
 
-<br />
-<br />
-<br />
-
      <div class="container">
        <div class="row">
 
@@ -193,7 +189,8 @@ $(window).on('resize load',adjustIframes);
           <p class="flow-text">
             
             
-            Las siguientes son visualizaciones generadas con datos anteriores (no oficiales). 
+            Las siguientes son visualizaciones generadas con datos anteriores (no oficiales)
+            que enfatizan el valor de contar con datos p&uacute;blicos. 
             Puedes ver las <a href="wc">palabras</a> m&aacute;s mencionadas en actas, y
             <a href="http://constitucionabierta.cl/mapa">mapas</a> de encuentros por comunas,
             y algunas de las 
@@ -201,7 +198,7 @@ $(window).on('resize load',adjustIframes);
             en nuestro sitio.
             Las actas oficiales las puedes encontrar <a href="http://actas-encuentros-locales.unaconstitucionparachile.cl/">acá</a>.
             La visualización más actualizada con datos oficiales la puedes ver en el nuevo
-            <a href="http://constitucionabierta.cl/explorador/">Explorador de Conceptos Constitucionales</a> a nivel nacional.
+            <a href="...">Explorador de Conceptos Constitucionales</a> a nivel nacional.
           </p>
 
           <!--a class="waves-effect blue btn-large" href="http://constitucionabierta.cl/actas/mosaico">Ver Actas p&uacute;blicas</a-->
@@ -214,6 +211,22 @@ $(window).on('resize load',adjustIframes);
         <div class="col s12 center">
           <br />
           <br />
+          
+          <a name="palabras"></a>
+
+          <!--object type="image/svg+xml" data="/static/html/wordcloud-impact-80-21.svg" width="100%">
+          Your browser does not support SVG
+          </object-->
+          <a href="wc">
+            <img id="vc" class="responsive-img" src="/static/html/wc-impact-80-24.png" width="80%" /></a>
+
+          <p class="flow-text">
+            Palabras m&aacute;s mencionadas en las <a href="/actas/mosaico">actas hechas p&uacute;blicas</a>. 
+            <!-- El tama&ntilde;o de cada palabra corresponde a la cantidad de veces
+            que se menciona.--> 
+            Ver <a href="wc">versi&oacute;n interactiva</a>.
+          </p>
+
 
           <br/>
           <br/>
@@ -222,8 +235,85 @@ $(window).on('resize load',adjustIframes);
 
         </div>
 
+      
+        <div class="col s12 center">
+          
+
+          <!--<div id="mapid" style="height:400px; margin-bottom: 10px;" class="col s12 center"></div>-->
+
+          <a name="mapas"></a>
+          <iframe style="height:400px; margin-bottom: 10px; width : 100%;" src="https://www.google.com/maps/d/embed?mid=1lJaA5A8o32LIVQoLR6vjhUnntHI"></iframe>
+        
+          <p class="flow-text">Mapa de encuentros locales por comuna.</p>
+        
+          <a href="http://dcc.uchile.cl/~mquezada/ELAs/ELAs_2016-06-20.csv" class="waves-effect red btn-large">Descargar datos de ELAs</a> &nbsp;&nbsp;
+          <a class="waves-effect blue btn-large" href="http://constitucionabierta.cl/mapa">Ver m&aacute;s mapas</a>
+          <br /><br/>
+          
+          <!--div class="divider"></div>
+          <div style="margin-bottom: 40px;"></div-->
+
+        </div>
+
+        <!--div class="col s12">
+          <p class="flow-text">
+            Los siguientes son datos de los Encuentros Locales Autoconvocados en el marco del Proceso Constituyente que se lleva a cabo en Chile. Las visualizaciones fueron creadas para enfatizar la necesidad de que todos los datos del proceso <a href="http://constitucionabierta.cl/opendata-cco">est&eacute;n disponibles de manera abierta y en internet</a> para todos los chilenos y chilenas.
+          </p>
+        </div-->
+
+
+        <div class="col s12 center">
+          
+          <a name="otras"></a>
+          
+  					<!--div class="viz" id="regiones_mas_grandes"></div>
+            <br-->
+            
+            <div class="viz" id="regiones_mas_grandes_10000hab"></div>
+            <br>
+            
+            <!--div class="viz" id="comunas_mas_grandes"></div>
+            <br-->
+            
+            <div class="viz" id="comunas_mas_grandes_10000hab"></div>
+            <br>
+            
+            <div class="viz" id="encuentros_por_regiones_enc"></div>
+            <br>
+            
+            <!--div class="viz" id="encuentros_por_regiones_enc10000"></div>
+            <br-->
+            
+            <!--div class="viz" id="encuentros_vs_idh_regiones"></div-->
+            <br>
+            
+            <!--div class="viz" id="encuentros_vs_idh_comunas"></div>
+            <br>
+            
+            <div class="viz" id="encuentros_vs_participacion_regiones"></div>
+            <br>
+            
+            <div class="viz" id="encuentros_vs_participacion_regiones_active"></div>
+            <br>
+            
+            <div class="viz" id="encuentros_vs_participacion_comunas"></div>
+            <br-->
+            
+            <!--div class="viz" id="encuentros_participacion_metropolitana"></div-->
+            <!--br-->
+            
+            <!--div class="viz" id="cuenta_encuentros"></div-->
+            <!--br-->
+            
+            <!--div class="viz" id="cuenta_acumulada_encuentros"></div-->
+          <!--br /-->
+
+<a href="http://pacha.hk/constitucionabierta/sintesis_datos.zip" class="waves-effect waves-light btn">Descargar datos</a>          
+<a class="waves-light btn" href="http://pacha.hk/constitucionabierta/">Ver más gráficos interactivos</a>
+
+        </div>
       </div>
-      </div>
+    </div>
 
 
 <div class="divider"></div>
@@ -231,10 +321,7 @@ $(window).on('resize load',adjustIframes);
     <div class="section no-pad-bot valign-wrapper">
         <div class="valign container">
         <p>
-            En esta p&aacute;gina podemos reportar visualizaciones dado que el 
-            Proceso Constituyente ha hecho disponible la mayor parte de 
-            su informaci&oacute;n a la ciudadan&iacute;a de manera abierta y libre.
-            Los datos oficiales puedes encontrarlos <a href="http://datos.gob.cl/dataset/proceso-constituyente-abierto-a-la-ciudadania">acá</a>.
+            En esta p&aacute;gina iremos actualizando los datos de los Encuentros Locales y Cabildos a medida que est&eacute;n disponibles. Idealmente podremos reportar datos y visualizaciones mucho m&aacute;s interesantes si es que, como esperamos, el Proceso Constituyente hace disponible su informaci&oacute;n a la ciudadan&iacute;a de manera abierta y libre.
         </p>
         
         <p>Si deseas comunicarte con nosotros escr&iacute;benos a <a href="mailto:constitucionabierta@gmail.com">constitucionabierta@gmail.com</a>,
